@@ -9,14 +9,14 @@ import './App.css';
 export default () => {
   return (
     <div className='avenir'>
-      <header className='flex'>
+      <header className='section-banner flex'>
         <section className='w-third'></section>
         <section className='w-third tc'><Logo /></section>
         <section className='w-third'><Login /></section>
       </header>
       <div className='flex'>
         <section className='section-festList'><FestList /></section>
-        <section className='section-schedule tc'><Schedule /></section>
+        <section className='section-schedule'><Schedule /></section>
         <section className='section-timeline'><Timeline /></section>
       </div>
       <footer className='absolute bottom-0'>
