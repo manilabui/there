@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/auth/Login';
 import { ReactComponent as Logo } from './assets/Logo.svg';
+import FestList from './components/fest/FestList';
 import './App.css';
 
 const App = () => {
@@ -12,7 +13,9 @@ const App = () => {
         <section className='w-third'><Login /></section>
       </header>
       <div className='flex column tc'>
-        <section className='section-festList'>Fest List</section>
+        <section className='section-festList'>
+          <FestList />
+        </section>
         <section className='section-schedule'>Schedule</section>
         <section className='section-timeline'>Timeline</section>
       </div>
