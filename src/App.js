@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import Login from './components/auth/Login';
+import { ReactComponent as Logo } from './assets/Logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='avenir'>
+      <header className='flex column'>
+        <section className='w-third'></section>
+        <section className='w-third tc'><Logo /></section>
+        <section className='w-third'><Login /></section>
       </header>
+      <div className='flex column tc'>
+        <section className='section-festList'>Fest List</section>
+        <section className='section-schedule'>Schedule</section>
+        <section className='section-timeline'>Timeline</section>
+      </div>
+      <footer className='absolute bottom-0 tc'>
+        <p className='f7 black-70 mb2'>Made by Manbootay | 2020</p>
+      </footer>
     </div>
   );
 }
