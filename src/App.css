@@ -22,3 +22,20 @@ header {
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
+
+/*.section-schedule:before, .section-schedule:after {
+    box-shadow: -15px 0 15px -15px inset;
+    content: " ";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 15px;
+}
+
+.section-schedule:before {
+    left: -15px;
+}
+
+.section-schedule:after {
+    right: -15px;
+}*/

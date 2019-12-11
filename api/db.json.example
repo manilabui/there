@@ -99,7 +99,7 @@
 		{
 			"id": 1,
 			"name": "Ultra Mainstage",
-			"eventId": 1,
+			"eventId": 1
 		},
 		{
 			"id": 2,
@@ -186,7 +186,7 @@
 			"end": "Fri 11:00PM",
 			"artistId": 2,
 			"eventId": 1,
-			"stageId": 1,
+			"stageId": 1
 		},
 		{
 			"id": 3,
@@ -194,7 +194,7 @@
 			"end": "Fri 9:55PM",
 			"artistId": 3,
 			"eventId": 1,
-			"stageId": 1,	
+			"stageId": 1	
 		},
 		{
 			"id": 4,

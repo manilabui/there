@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 export default () => {
 	return (
 		<article>
-			<h5>Fest name</h5>
+			<h4>Artist</h4>
 		</article>
 	);
 };
