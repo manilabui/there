@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import { ReactComponent as Logo } from './assets/Logo.svg';
+import Login from './components/auth/Login';
+import FestList from './components/news/NewsList';
+import Schedule from './components/schedule/Schedule';
+import Timeline from './components/timeline/Timeline';
 import './App.css';
 
-function App() {
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='avenir'>
+      <header className='flex'>
+        <section className='w-third'></section>
+        <section className='w-third tc'><Logo /></section>
+        <section className='w-third'><Login /></section>
       </header>
+      <div className='flex'>
+        <section className='section-festList'><FestList /></section>
+        <section className='section-schedule tc'><Schedule /></section>
+        <section className='section-timeline'><Timeline /></section>
+      </div>
+      <footer className='absolute bottom-0'>
+        <p className='f7 black-70 mb2'>Made by Manbootay | 2020</p>
+      </footer>
     </div>
   );
 }
-
-export default App;
