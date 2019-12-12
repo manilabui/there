@@ -8,10 +8,10 @@ export default () => {
 
 	return (
 		<Fragment>
-			<h5>{date}</h5>
+			<h5 className='tc'>{date}</h5>
 			<section className='flex column'>
 				<article className='w-40 tl'><Lineup /></article>
-				<article className='w-20'>{time}</article>
+				<article className='w-20 tc'>{time}</article>
 				<article className='w-40 tr'><Lineup /></article>
 			</section>
 		</Fragment>
