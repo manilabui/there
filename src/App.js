@@ -1,9 +1,10 @@
 import React from 'react';
 import { ReactComponent as Logo } from './assets/Logo.svg';
 import Login from './components/auth/Login';
-import FestList from './components/news/NewsList';
+import FestList from './components/fest/FestList';
 import Schedule from './components/schedule/Schedule';
 import Timeline from './components/timeline/Timeline';
+import Moment from 'react-moment';
 import './App.css';
 
 export default () => {
