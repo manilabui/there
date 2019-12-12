@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react';
 import FestCard from './FestCard';
-import { reverse, sortBy } from 'lodash';
+import { reverse, sortBy, toLower } from 'lodash';
 import { getAll } from '../../modules/apiManager';
 import './FestList.css';
 
@@ -8,19 +8,23 @@ const sortByDate = arr => reverse(sortBy(arr, 'modifiedAt'));
 
 export default () => {
     const [fests, setFests] = useState([]);
-
+    const searchInput = useRef();
+    // TO DO: If user logged in, remove fests current user is going to from the list
     const getFests = () => { getAll("events").then(events => setFests(sortByDate(events))) };
 
     useEffect(getFests, []);
+    
+    const getSearchResults = () => {
+        // NOT WORKING
+        const festsArr = fests; // This was to keep the original array to filter over it rather than a small updated one
+        const results = festsArr.filter(({ name, location }) => {
+            const userInput = toLower(searchInput.current.value);
 
-    console.log(sortByDate(fests))
-    /* 
-        TODO: Searchfield functionality
-        
-        - Get all fests
-        - If user logged in, then also get all fests user is going to in order to remove those from the list
-    */
-    // const searchInput = useRef();
+            return toLower(name).includes(userInput) || toLower(location).includes(userInput);
+        });
+
+        setFests(results);
+    };
 
     const festNewsArr = fests.map(fest => {
         return (
@@ -37,7 +41,9 @@ export default () => {
                 className="search"
                 type="text"
                 id="search"
-                placeholder="Search"
+                ref={searchInput}
+                onChange={getSearchResults}
+                placeholder=""
             />
             {festNewsArr}
         </Fragment>
