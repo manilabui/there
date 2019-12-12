@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as Logo } from './assets/Logo.svg';
 import Login from './components/auth/Login';
 import FestList from './components/fest/FestList';
@@ -8,6 +8,13 @@ import Moment from 'react-moment';
 import './App.css';
 
 export default () => {
+  const [scheduleId, setScheduleId] = useState('');
+
+  const handleFestClick = id => {
+    console.log(id)
+    setScheduleId(id)
+  };
+
   return (
     <div className='avenir'>
       <header className='section-banner flex'>
@@ -16,8 +23,10 @@ export default () => {
         <section className='w-third'><Login /></section>
       </header>
       <div className='flex'>
-        <section className='section-festList'><FestList /></section>
-        <section className='section-schedule'><Schedule /></section>
+        <section className='section-festList'>
+          <FestList handleFestClick={handleFestClick}/>
+        </section>
+        <section className='section-schedule'><Schedule scheduleId={scheduleId} /></section>
         <section className='section-timeline'><Timeline /></section>
       </div>
       <footer className='absolute bottom-0'>

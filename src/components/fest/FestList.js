@@ -6,7 +6,7 @@ import './FestList.css';
 
 const sortByDate = arr => reverse(sortBy(arr, 'modifiedAt'));
 
-export default () => {
+export default props => {
     const [fests, setFests] = useState([]);
     const searchInput = useRef();
     // TO DO: If user logged in, remove fests current user is going to from the list
@@ -15,8 +15,8 @@ export default () => {
     useEffect(getFests, []);
     
     const getSearchResults = () => {
-        // NOT WORKING
-        const festsArr = fests; // This was to keep the original array to filter over it rather than a small updated one
+        // TO DO: Make it only filter original array, so it doesn't just filter down
+        const festsArr = fests; // This was to keep the original array to filter over it rather than a small updated one, but she don't work quite right.
         const results = festsArr.filter(({ name, location }) => {
             const userInput = toLower(searchInput.current.value);
 
@@ -31,6 +31,7 @@ export default () => {
             <FestCard
                 key={fest.id}
                 {...fest}
+                {...props}
             />
         );
     });
