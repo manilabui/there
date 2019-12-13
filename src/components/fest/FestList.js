@@ -10,23 +10,20 @@ export default props => {
     const [fests, setFests] = useState([]);
     const searchInput = useRef();
     // TO DO: If user logged in, remove fests current user is going to from the list
-    const getFests = () => { getAll("events").then(events => setFests(sortByDate(events))) };
+    const getFests = () => { getAll("events?public=true").then(events => setFests(sortByDate(events))) };
 
     useEffect(getFests, []);
     
     const getSearchResults = () => {
-        // TO DO: Make it only filter original array, so it doesn't just filter down
-        const festsArr = fests; // This was to keep the original array to filter over it rather than a small updated one, but she don't work quite right.
-        const results = festsArr.filter(({ name, location }) => {
-            const userInput = toLower(searchInput.current.value);
-
+        const userInput = toLower(searchInput.current.value);
+        const results = fests.filter(({ name, location }) => {
             return toLower(name).includes(userInput) || toLower(location).includes(userInput);
         });
-
-        setFests(results);
+        // If search is empty, then get all fests
+        userInput ? setFests(results) : getFests();
     };
 
-    const festNewsArr = fests.map(fest => {
+    const festNews = fests.map(fest => {
         return (
             <FestCard
                 key={fest.id}
@@ -46,7 +43,7 @@ export default props => {
                 onChange={getSearchResults}
                 placeholder=""
             />
-            {festNewsArr}
+            {festNews}
         </Fragment>
     );
 };

@@ -1,30 +1,16 @@
 import React, { Fragment } from 'react';
 import Lineup from './Lineup';
+import Moment from 'react-moment';
 
-export default () => {
-	// DEMO
-	const date = 'Fri, May 10, 2019';
-	const time = '5:00AM'
-
+export default ({ date }) => {
 	return (
 		<Fragment>
-			<h5 className='tc'>{date}</h5>
+			<article className='tc'><Moment format='dddd, LL' date={date} /></article>
 			<section className='flex column'>
 				<article className='w-40 tl'><Lineup /></article>
-				<article className='w-20 tc'>{time}</article>
+				<article className='w-20 tc'><Moment format='h:hh A' date={date} /></article>
 				<article className='w-40 tr'><Lineup /></article>
 			</section>
 		</Fragment>
 	);
-
-	// return (
-	// 	
-	// 		
-	// 		
-	// 			<Lineup isPublic={true} />
-	// 			{/* TODO: if user, then display personal sched */}
-	// 			<Lineup isPublic={false}/>
-	// 		
-	// 	
-	// );
 };

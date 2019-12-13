@@ -11,8 +11,7 @@ export default () => {
   const [scheduleId, setScheduleId] = useState('');
 
   const handleFestClick = id => {
-    console.log(id)
-    setScheduleId(id)
+    setScheduleId(id);
   };
 
   return (
