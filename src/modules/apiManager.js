@@ -8,7 +8,7 @@ export const deleteItem = (entity, id) => {
   return fetch(`http://localhost:5002/${entity}/${id}`, {
       method: "DELETE"
   })
-  	.then(result => result.json());
+  	.then(r => r.json());
 };
 
 export const postItem = (entity, item) => {
@@ -19,7 +19,7 @@ export const postItem = (entity, item) => {
         },
         body: JSON.stringify(item)
     })
-    	.then(data => data.json());
+    	.then(r => r.json());
 };
 
 export const updateItem = (entity, item) => {
@@ -29,5 +29,5 @@ export const updateItem = (entity, item) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(item)
-    }).then(data => data.json());
+    }).then(r => r.json());
   };

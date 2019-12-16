@@ -1,30 +1,30 @@
-import React, { Fragment } from 'react';
-import Lineup from './Lineup';
+import React, { Fragment, useState } from 'react';
+import FestTime from './FestTime';
+import Moment from 'react-moment';
+import { sortBy } from 'lodash';
 
-export default () => {
-	// DEMO
-	const date = 'Fri, May 10, 2019';
-	const time = '5:00AM'
+const createTimesObj = arr => {
+    const result = {};
+
+    arr.forEach(currSet => {
+        const time = currSet.start.slice(-5);
+        // add time to the result obj by pushing to existing array or starting new one
+        result[time] ? result[time].push(currSet) : result[time] = [currSet];
+    });
+    
+    return result;
+};
+
+export default ({ lineup }) => {
+	const date = lineup[0].start;
+	const sortedLineup = sortBy(lineup, ({ start }) => new Date(start));
+	const timesObj = createTimesObj(sortedLineup);
+	const festTimesArr = sortBy(timesObj).map((lineup, i) => <FestTime key={i} lineup={lineup} />);
 
 	return (
 		<Fragment>
-			<h5 className='tc'>{date}</h5>
-			<section className='flex column'>
-				<article className='w-40 tl'><Lineup /></article>
-				<article className='w-20 tc'>{time}</article>
-				<article className='w-40 tr'><Lineup /></article>
-			</section>
+			<article className='tc'><Moment format='dddd, LL' date={date} /></article>
+			{festTimesArr}
 		</Fragment>
 	);
-
-	// return (
-	// 	
-	// 		
-	// 		
-	// 			<Lineup isPublic={true} />
-	// 			{/* TODO: if user, then display personal sched */}
-	// 			<Lineup isPublic={false}/>
-	// 		
-	// 	
-	// );
 };
