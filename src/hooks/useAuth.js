@@ -10,12 +10,16 @@ export default () => {
         getAll('users')
             .then(users => {
                 users.map(user => {
-                    if (creds.userName === user.userName && creds.password === user.password) {
-                        localStorage.setItem("credentials", JSON.stringify(creds));
+                    if (creds.email === user.email && creds.password === user.password) {
+                        const { id, userName, firstName } = user;
+                        const userInfo = { id, userName, firstName };
+                        
+                        localStorage.setItem("credentials", JSON.stringify(userInfo));
                         setLoggedIn(true);
-                    }
-                })
-            })
+                    };
+                });
+            });
+            if (!isAuthenticated) window.alert('Please enter the correct email + password.');
     };
 
     const register = userInfo => {

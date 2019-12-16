@@ -1,9 +1,10 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import useAuth from '../../hooks/useAuth';
 
 export default () => {
 	const [showLogin, setLogin] = useState(false);
-	const { login } = useAuth();
+	const [user, setUser] = useState(null);
+	const { login, logout, isAuthenticated } = useAuth();
 
 	const email = useRef();
     const password = useRef();
@@ -19,7 +20,13 @@ export default () => {
         };
 
         login(userInfo);
-    }
+        setUser(localStorage.getItem('credentials'));
+    };
+
+    const handleLogout = () => {
+    	logout();
+    	setUser(null);
+    };
 
 	const form = type => {
 		return (
@@ -47,17 +54,29 @@ export default () => {
 					className="f6 fw5 bg-white pink dim pointer pa2 pv1 mt2 fr br2"
 					type="submit"
 					onClick={handleLogin}>
-						Sign in
+						Submit
 				</button>
 			</form>
 		);
 	};
 
 	return (
-		<Fragment>
-			<h4 className='fr dim pointer' onClick={handleLoginDisplay}>Login</h4>
-			{showLogin ? form('login') : null}
-		</Fragment>
+		<section className='fr'>
+			{isAuthenticated()
+				? (
+					<Fragment>
+						{/*<h5 className='dib pr2 dim pointer'>{user ? user.firstName : null} is THERE.</h5>*/}
+						<h4 className='dib dim pointer' onClick={handleLogout}>Sign Out</h4>
+					</Fragment>
+				)
+				: (
+					<Fragment>
+						<h4 className='fr dim pointer' onClick={handleLoginDisplay}>Sign In</h4>
+						{showLogin ? form('login') : null}
+					</Fragment>
+				)
+			}
+		</section>
 	);
 };
 
