@@ -17,6 +17,7 @@ export default () => {
                         localStorage.setItem("credentials", JSON.stringify(userInfo));
                         setLoggedIn(true);
                     };
+                    return user.id
                 });
             });
             if (!isAuthenticated) window.alert('Please enter the correct email + password.');

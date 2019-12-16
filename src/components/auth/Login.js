@@ -1,9 +1,9 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import useAuth from '../../hooks/useAuth';
+import { getUserInfo } from '../../modules/helpers';
 
 export default () => {
 	const [showLogin, setLogin] = useState(false);
-	const [user, setUser] = useState(null);
 	const { login, logout, isAuthenticated } = useAuth();
 
 	const email = useRef();
@@ -20,13 +20,11 @@ export default () => {
         };
 
         login(userInfo);
-        setUser(localStorage.getItem('credentials'));
     };
 
-    const handleLogout = () => {
-    	logout();
-    	setUser(null);
-    };
+    // const getUserFirstName = () => JSON.parse(localStorage.getItem('credentials')).firstName;
+
+
 
 	const form = type => {
 		return (
@@ -65,8 +63,8 @@ export default () => {
 			{isAuthenticated()
 				? (
 					<Fragment>
-						{/*<h5 className='dib pr2 dim pointer'>{user ? user.firstName : null} is THERE.</h5>*/}
-						<h4 className='dib dim pointer' onClick={handleLogout}>Sign Out</h4>
+						<h5 className='dib pr1'>{getUserInfo().firstName} is THERE</h5>
+						<h4 className='dib dim pointer' onClick={() => logout()}>| Sign Out</h4>
 					</Fragment>
 				)
 				: (

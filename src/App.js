@@ -23,7 +23,7 @@ export default () => {
           <FestList handleFestClick={handleFestClick}/>
         </section>
         <section className='section-schedule'><Schedule scheduleId={scheduleId} /></section>
-        <section className='section-timeline'><Timeline /></section>
+        <section className='section-timeline'><Timeline handleFestClick={handleFestClick} /></section>
       </div>
       <footer className='absolute bottom-0'>
         <p className='f7 black-70 mb2'>Made by Manbootay | 2020</p>

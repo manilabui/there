@@ -13,7 +13,7 @@ export default ({ setId }) => {
 			.then(({ artist, stage }) => {
 				setArtist(artist.name);
 				setStage(stage.name);
-			}); 
+			});
 	};
 	
 	useEffect(getExpandedSet, []);
@@ -22,7 +22,7 @@ export default ({ setId }) => {
 		<article>
 			<Check className='dib pointer dim' />
 			<Star className='dib pointer dim' />
-			<div className='dib pointer dim'>
+			<div className='dib'>
 				<h6 className='dib'>{artist}</h6>
 				<h6 className='dib'>{stage}</h6>
 			</div>

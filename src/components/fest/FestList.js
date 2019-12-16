@@ -23,15 +23,7 @@ export default props => {
         userInput ? setFests(results) : getFests();
     };
 
-    const festNews = fests.map(fest => {
-        return (
-            <FestCard
-                key={fest.id}
-                {...fest}
-                {...props}
-            />
-        );
-    });
+    const festNews = fests.map(fest => <FestCard key={fest.id} {...fest} {...props} />);
 
     return (
         <Fragment>

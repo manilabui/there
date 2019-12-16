@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import FestTime from './FestTime';
 import Moment from 'react-moment';
 import { sortBy } from 'lodash';
