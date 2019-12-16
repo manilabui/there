@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import FestCard from '../fest/FestCard';
+// import FestCard from '../fest/FestCard';
 import { getAll } from '../../modules/apiManager';
 
 export default () => {

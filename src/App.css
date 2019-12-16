@@ -8,6 +8,10 @@ body {
   padding: .5rem;
 }
 
+.container-main {
+  height: 65vh;
+}
+
 .section-banner {
   height: 28vh;
 }

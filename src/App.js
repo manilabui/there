@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as Logo } from './assets/Logo.svg';
 import Login from './components/auth/Login';
 import FestList from './components/fest/FestList';
 import Schedule from './components/schedule/Schedule';
 import Timeline from './components/timeline/Timeline';
-import Moment from 'react-moment';
 import './App.css';
 
 export default () => {
   const [scheduleId, setScheduleId] = useState('');
 
-  const handleFestClick = id => {
-    setScheduleId(id);
-  };
+  const handleFestClick = id => setScheduleId(id);
 
   return (
     <div className='avenir'>
@@ -21,7 +18,7 @@ export default () => {
         <section className='w-third tc'><Logo /></section>
         <section className='w-third'><Login /></section>
       </header>
-      <div className='flex'>
+      <div className='container-main flex'>
         <section className='section-festList'>
           <FestList handleFestClick={handleFestClick}/>
         </section>
