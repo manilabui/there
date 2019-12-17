@@ -8,7 +8,9 @@ import './App.css';
 
 export default () => {
   const [scheduleId, setScheduleId] = useState('');
+  const [user, setUser] = useState();
 
+  const handleUserChange = user => setUser(user);
   const handleFestClick = id => setScheduleId(id);
 
   return (

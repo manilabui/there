@@ -12,22 +12,22 @@ export default props => {
     	if (isAuthenticated()) {
     		getAll('usersToEvents?_expand=event')
     			.then(events => {
-    				console.log(events)
     				const currUserEvents = events.filter(({ userId }) => getUserInfo().id === userId);
 
     				setFests(currUserEvents);
-
     			})};
     };
 
     useEffect(getUserFests, []);
 
-    const festCardArr = fests.map(({ event }) => <FestCard key={event.id} {...event} {...props} />);
+    const festCardArr = fests.map(({ event }) => {
+    	return <FestCard key={event.id} isNewsList={false} {...event} {...props} />
+    });
 
     return (
         <Fragment>
-            <h5 className='fr pointer dim'>+ Create New Fest</h5>
-            {festCardArr}
+            <h5 className='fr pointer dim underline'>+ Create New Fest</h5>
+            <div>{festCardArr}</div>
         </Fragment>
     );
 };

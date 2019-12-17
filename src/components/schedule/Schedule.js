@@ -21,10 +21,8 @@ export default ({ scheduleId }) => {
     const [days, setDays] = useState([]);
 
     const getSchedule = scheduleId => {
-        const scheduleWithLineupUrl = `${scheduleId}?_embed=artistsToEvents`;
-
         if (scheduleId) {
-            getItem('events', scheduleWithLineupUrl)
+            getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
                     const daysObj = createDaysObj(artistsToEvents);
 
@@ -47,7 +45,7 @@ export default ({ scheduleId }) => {
                 <h5 className='w-60 tc'>{location}</h5>
                 <h4 className='w-20 tr underline'>Your Schedule</h4>
             </header>
-            <section>{festDayArr}</section>
+            <section className=''>{festDayArr}</section>
         </Fragment>
     );
 };

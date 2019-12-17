@@ -22,10 +22,6 @@ export default () => {
         login(userInfo);
     };
 
-    // const getUserFirstName = () => JSON.parse(localStorage.getItem('credentials')).firstName;
-
-
-
 	const form = type => {
 		return (
 			<form className="fr ml6 mv3 pa3 br2 shadow-1 w-70">

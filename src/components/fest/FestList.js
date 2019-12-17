@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect, useRef } from 'react';
+import useAuth from '../../hooks/useAuth';
 import FestCard from './FestCard';
 import { reverse, sortBy, toLower } from 'lodash';
 import { getAll } from '../../modules/apiManager';
@@ -9,6 +10,7 @@ const sortByDate = arr => reverse(sortBy(arr, 'modifiedAt'));
 export default props => {
     const [fests, setFests] = useState([]);
     const searchInput = useRef();
+    const { isAuthenticated } = useAuth();
     // TO DO: If user logged in, remove fests current user is going to from the list
     const getFests = () => { getAll("events?public=true").then(events => setFests(sortByDate(events))) };
 
@@ -23,7 +25,7 @@ export default props => {
         userInput ? setFests(results) : getFests();
     };
 
-    const festNews = fests.map(fest => <FestCard key={fest.id} {...fest} {...props} />);
+    const festNews = fests.map(fest => <FestCard key={fest.id} isNewsList={true} {...fest} {...props} />);
 
     return (
         <Fragment>
