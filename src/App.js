@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import useAuth from './hooks/useAuth';
 import { getAll } from './modules/apiManager';
 import { getUserInfo, sortByModifiedDate } from './modules/helpers';
 import { ReactComponent as Logo } from './assets/Logo.svg';
@@ -11,30 +10,18 @@ import './App.css';
 
 export default () => {
   const [scheduleId, setScheduleId] = useState('');
+  const [user, setUser] = useState(getUserInfo()); //maybe remove
   const [userFests, setUserFests] = useState([]);
   const [userFestIds, setUserFestIds] = useState([]);
   const [newsFests, setNewsFests] = useState([]);
-  const { isAuthenticated } = useAuth();
-  // const [user, setUser] = useState();
-
-  const getUserFests = () => {
-      getAll('usersToEvents?_expand=event')
-        .then(events => {
-          const currUserFests = events.filter(({ userId }) => getUserInfo().id === userId);
-          const currUserFestIds = currUserFests.map(({ eventId }) => eventId);
-
-          setUserFests(currUserFests);
-          setUserFestIds(currUserFestIds);
-        });
-  };
 
   const getAllFests = () => { 
     getAll("events?public=true")
       .then(fests => {
-        if (isAuthenticated()) {
+        if (user) {
           getAll('usersToEvents?_expand=event')
             .then(events => {
-              const currUserFests = events.filter(({ userId }) => getUserInfo().id === userId);
+              const currUserFests = events.filter(({ userId }) => user.id === userId);
               const currUserFestIds = currUserFests.map(({ eventId }) => eventId);
               const filteredFests = fests.filter(({ id }) => !currUserFestIds.includes(id));
 
@@ -46,23 +33,7 @@ export default () => {
       });
   };
 
-  // const getAllFests = () => { 
-  //   getAll("events?public=true")
-  //     .then(fests => {
-  //       if (isAuthenticated()) {
-  //       getUserFests();
-
-  //         const filteredFests = fests.filter(({ id }) => !userFestIds.includes(id));
-
-  //         setNewsFests(sortByModifiedDate(filteredFests));
-  //       } 
-  //       else setNewsFests(sortByModifiedDate(fests));
-  //     });
-  // };
-
-
-
-  useEffect(getAllFests, []);
+  useEffect(getAllFests, [userFests]);
 
   // const handleUserChange = user => setUser(user);
   const handleFestClick = id => setScheduleId(id);
@@ -79,6 +50,7 @@ export default () => {
         <section className='section-festList'>
           <FestList
             fests={newsFests}
+            user={user}
             updateFestList={updateFestList}
             handleFestClick={handleFestClick}
             getAllFests={getAllFests}

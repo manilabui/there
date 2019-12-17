@@ -1,8 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import FestCard from '../fest/FestCard';
-import useAuth from '../../hooks/useAuth';
-import { getAll } from '../../modules/apiManager';
-import { getUserInfo } from '../../modules/helpers';
 
 export default props => {
     const festCardArr = props.fests.map(({ event }) => {
