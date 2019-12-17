@@ -5,22 +5,7 @@ import { getAll } from '../../modules/apiManager';
 import { getUserInfo } from '../../modules/helpers';
 
 export default props => {
-	const [fests, setFests] = useState([]);
-	const { isAuthenticated } = useAuth();
-
-    const getUserFests = () => {
-    	if (isAuthenticated()) {
-    		getAll('usersToEvents?_expand=event')
-    			.then(events => {
-    				const currUserEvents = events.filter(({ userId }) => getUserInfo().id === userId);
-
-    				setFests(currUserEvents);
-    			})};
-    };
-
-    useEffect(getUserFests, []);
-
-    const festCardArr = fests.map(({ event }) => {
+    const festCardArr = props.fests.map(({ event }) => {
     	return <FestCard key={event.id} isNewsList={false} {...event} {...props} />
     });
 
