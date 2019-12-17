@@ -1,14 +1,11 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
-import useAuth from '../../hooks/useAuth';
+import React, { Fragment, useRef } from 'react';
 import FestCard from './FestCard';
 import { toLower } from 'lodash';
-import { getAll } from '../../modules/apiManager';
 import './FestList.css';
 
 export default props => {
-    const { fests } = props;
+    const { fests, updateFestList } = props;
     const searchInput = useRef();
-    // TO DO: If user logged in, remove fests current user is going to from the list
     
     const getSearchResults = () => {
         const userInput = toLower(searchInput.current.value);
@@ -16,7 +13,7 @@ export default props => {
             return toLower(name).includes(userInput) || toLower(location).includes(userInput);
         });
         // If search is empty, then get all fests
-        userInput ? setFests(results) : props.getAllFests();
+        userInput ? updateFestList(results) : props.getAllFests();
     };
 
     const festNews = fests.map(fest => <FestCard key={fest.id} isNewsList={true} {...fest} {...props} />);

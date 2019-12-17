@@ -1,5 +1,5 @@
 // can potentially be used by both news (aka FestList) + timeline sections
-import React, { Fragment } from 'react';
+import React from 'react';
 import Moment from 'react-moment';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
@@ -10,8 +10,8 @@ export default ({ id, start, name, location, updateType, handleFestClick, isNews
 
 	const addToTimelineButtons = 
 		<div className='dib'>
-			<Check className='dib pointer dim' onClick='' />
-			<Star className='dib pointer dim' onClick='' />
+			<Check className='dib pointer dim' />
+			<Star className='dib pointer dim' />
 		</div>;
 
 	return (

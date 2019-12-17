@@ -12,37 +12,56 @@ import './App.css';
 export default () => {
   const [scheduleId, setScheduleId] = useState('');
   const [userFests, setUserFests] = useState([]);
-  const [newsFests, setNewsFests] = useState([]);
   const [userFestIds, setUserFestIds] = useState([]);
+  const [newsFests, setNewsFests] = useState([]);
   const { isAuthenticated } = useAuth();
   // const [user, setUser] = useState();
 
   const getUserFests = () => {
-    if (isAuthenticated()) {
       getAll('usersToEvents?_expand=event')
         .then(events => {
-          const currUserEvents = events.filter(({ userId }) => getUserInfo().id === userId);
-          const currUserFestIds = currUserEvents.map(({ eventId }) => eventId);
+          const currUserFests = events.filter(({ userId }) => getUserInfo().id === userId);
+          const currUserFestIds = currUserFests.map(({ eventId }) => eventId);
 
-          setUserFests(currUserEvents);
+          setUserFests(currUserFests);
           setUserFestIds(currUserFestIds);
-        })};
+        });
   };
 
   const getAllFests = () => { 
     getAll("events?public=true")
       .then(fests => {
         if (isAuthenticated()) {
-          const filteredFests = fests.filter(({ id }) => !userFestIds.includes(id));
-          console.log(fests)
-          console.log(filteredFests)
-          setNewsFests(sortByModifiedDate(filteredFests));
+          getAll('usersToEvents?_expand=event')
+            .then(events => {
+              const currUserFests = events.filter(({ userId }) => getUserInfo().id === userId);
+              const currUserFestIds = currUserFests.map(({ eventId }) => eventId);
+              const filteredFests = fests.filter(({ id }) => !currUserFestIds.includes(id));
+
+              setUserFests(currUserFests);
+              setNewsFests(sortByModifiedDate(filteredFests));
+            });   
         } 
         else setNewsFests(sortByModifiedDate(fests));
       });
-    };
+  };
 
-  useEffect(getUserFests, []);
+  // const getAllFests = () => { 
+  //   getAll("events?public=true")
+  //     .then(fests => {
+  //       if (isAuthenticated()) {
+  //       getUserFests();
+
+  //         const filteredFests = fests.filter(({ id }) => !userFestIds.includes(id));
+
+  //         setNewsFests(sortByModifiedDate(filteredFests));
+  //       } 
+  //       else setNewsFests(sortByModifiedDate(fests));
+  //     });
+  // };
+
+
+
   useEffect(getAllFests, []);
 
   // const handleUserChange = user => setUser(user);
@@ -62,7 +81,7 @@ export default () => {
             fests={newsFests}
             updateFestList={updateFestList}
             handleFestClick={handleFestClick}
-            getAllFests={getAllFests}  
+            getAllFests={getAllFests}
           />
         </section>
         <section className='section-schedule'><Schedule scheduleId={scheduleId} /></section>

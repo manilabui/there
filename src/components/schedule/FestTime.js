@@ -2,14 +2,11 @@
 import React from 'react';
 import Moment from 'react-moment';
 import LineupCard from './LineupCard';
-import useAuth from '../../hooks/useAuth';
-import { getUserInfo } from '../../modules/helpers';
 
 export default ({ lineup }) => {
-	console.log(lineup)
 	const date = lineup[0].start;
 	const festSetsArr = lineup.map(({ id }) => <LineupCard key={id} setId={id} />);
-
+	// TO DO: user schedule
 	const userSetsArr = '';
 
 	return (
