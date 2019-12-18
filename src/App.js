@@ -33,9 +33,9 @@ export default () => {
       });
   };
 
-  useEffect(getAllFests, [userFests]);
+  useEffect(getAllFests, [user, userFests]);
 
-  // const handleUserChange = user => setUser(user);
+  const updateUser = user => setUser(user);
   const handleFestClick = id => setScheduleId(id);
   const updateFestList = arr => setNewsFests(arr); 
 
@@ -44,7 +44,7 @@ export default () => {
       <header className='section-banner flex'>
         <section className='w-third'></section>
         <section className='w-third tc'><Logo /></section>
-        <section className='w-third'><Login /></section>
+        <section className='w-third'><Login updateUser={updateUser} /></section>
       </header>
       <div className='container-main flex'>
         <section className='section-festList'>

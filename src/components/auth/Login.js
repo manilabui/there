@@ -2,7 +2,7 @@ import React, { Fragment, useState, useRef } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { getUserInfo } from '../../modules/helpers';
 
-export default () => {
+export default ({ updateUser }) => {
 	const [showLogin, setLogin] = useState(false);
 	const { login, logout, isAuthenticated } = useAuth();
 
@@ -12,14 +12,18 @@ export default () => {
 	const handleLoginDisplay = () => showLogin ? setLogin(false) : setLogin(true);
 
 	const handleLogin = e => {
-        e.preventDefault();
-
         const userInfo = {
             email: email.current.value,
             password: password.current.value
         };
 
         login(userInfo);
+        updateUser(getUserInfo());
+    };
+
+    const handleLogout = () => {
+    	logout();
+    	updateUser(getUserInfo());
     };
 
 	const form = type => {
@@ -60,7 +64,7 @@ export default () => {
 				? (
 					<Fragment>
 						<h5 className='dib pr1'>{getUserInfo().firstName} is THERE</h5>
-						<h4 className='dib dim pointer' onClick={() => logout()}>| Sign Out</h4>
+						<h4 className='dib dim pointer' onClick={handleLogout}>| Sign Out</h4>
 					</Fragment>
 				)
 				: (
