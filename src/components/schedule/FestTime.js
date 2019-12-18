@@ -3,13 +3,15 @@ import React, { Fragment } from 'react';
 import Moment from 'react-moment';
 import LineupCard from './LineupCard';
 
-export default ({ festLineup, user }) => {
-	const date = festLineup[0].start;
-	const festSetsArr = festLineup.map(({ id }) => {
+export default ({ festSets, userSets, user }) => {
+	const date = festSets[0].start;
+	const festSetsArr = festSets.map(({ id }) => {
 		return <LineupCard key={id} setId={id} isPublic={true} user={user}/>
 	});
 	// TO DO: user schedule
-	const userSetsArr = '';
+	const userSetsArr = userSets 
+		? userSets.map(({ id }) => <LineupCard key={id} setId={id} isPublic={false} user={user}/>)
+		: '';
 
 	return (
 		<Fragment>
@@ -18,7 +20,7 @@ export default ({ festLineup, user }) => {
 				<article className='w-20 tc'><Moment format='h:mm A' date={date} /></article>
 				<article className='w-40 tr'>{userSetsArr}</article>
 			</section>
-			<hr />
+			<hr/>
 		</Fragment>
 	);
 };

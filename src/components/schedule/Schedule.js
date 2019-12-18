@@ -1,8 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import useAuth from '../../hooks/useAuth';
 import FestDay from './FestDay';
 import { sortBy, reverse } from 'lodash';
-import { getAll } from '../../modules/apiManager';
+import { getAll, getItem } from '../../modules/apiManager';
 import './Schedule.css';
 
 const createDaysObj = arr => {
@@ -22,11 +21,10 @@ export default ({ scheduleId, user }) => {
     const [location, setLocation] = useState('Location');
     const [festDays, setFestDays] = useState([]);
     const [userDays, setUserDays] = useState([]);
-    const { isAuthenticated } = useAuth();
 
     const getSchedule = scheduleId => {
         if (scheduleId) {
-            getAll(`events/${scheduleId}?_embed=artistsToEvents`)
+            getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
                     const daysObj = createDaysObj(artistsToEvents);
 
@@ -35,15 +33,32 @@ export default ({ scheduleId, user }) => {
                     setFestDays(daysObj);
             });
         };
-        if (isAuthenticated()) {
-            //getAll('usersToArtistEvents', ``)
-        }
+        if (user) {
+            getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
+                .then(events => {
+                    const userArtistsToEvents = events.map(({ artistsToEvent }) => artistsToEvent);
+                    const userDaysObj = createDaysObj(userArtistsToEvents);
+
+                    setUserDays(userDaysObj);
+                });
+        };
     };
 
-    useEffect(() => getSchedule(scheduleId), [scheduleId]);
+    useEffect(() => getSchedule(scheduleId), [scheduleId, user]);
 
     const festDaysArr = reverse(sortBy(festDays)).map((lineup, i) => {
-        return <FestDay key={i} festLineup={lineup} user={user}/>
+        // const currDay = lineup[0].day;
+        // const userLineup = userDays[currDay] ? userDays[currDay] : null;
+        // const userLineupIds = userLineup 
+        //     ? userLineup.map(({ artistsToEventId }) => artistsToEventId) 
+        //     : null;
+        // const festLineup = userLineup 
+        //     ? userLineup.filter(({ id }) => userLineupIds.includes(id)) 
+        //     : lineup;
+
+            console.log(lineup)
+        return 'fest day'
+        //return <FestDay key={i} festLineup={festLineup} userLineup={userLineup} user={user}/>
     });
 
     return (

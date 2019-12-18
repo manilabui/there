@@ -21,6 +21,7 @@ export default ({ setId, user, isPublic }) => {
 	const addToUserSchedule = attendance => {
 		const item = {
 			userId: user.id,
+			artistsToEventId: setId,
 			attendance
 		};
 

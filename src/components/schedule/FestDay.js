@@ -15,12 +15,25 @@ const createTimesObj = arr => {
     return result;
 };
 
-export default ({ festLineup, user }) => {
+export default ({ festLineup, userLineup, user }) => {
 	const date = festLineup[0].start;
-	const sortedLineup = sortBy(festLineup, ({ start }) => new Date(start));
-	const timesObj = createTimesObj(sortedLineup);
-	const festTimesArr = sortBy(timesObj).map((lineup, i) => {
-		return <FestTime key={i} festLineup={lineup} user={user}/>
+	const sortedFestLineup = sortBy(festLineup, ({ start }) => new Date(start));
+	const sortedUserLineup = userLineup ? sortBy(userLineup, ({ start }) => new Date(start)) : null;
+	const festTimes = createTimesObj(sortedFestLineup);
+	const userTimes = userLineup ? createTimesObj(sortedUserLineup) : null;
+	const festTimesArr = sortBy(festTimes).map((lineup, i) => {
+		const currTime = lineup[0].start.slice(-5);
+		const userSets = userTimes 
+			? (userTimes[currTime] ? userTimes[currTime] : null)
+			: null;
+        const userSetIds = userSets 
+            ? userSets.map(({ artistsToEventId }) => artistsToEventId) 
+            : null;
+        const festSets = userSets 
+        	? userSets.filter(({ id }) => userSetIds.includes(id)) 
+        	: lineup;
+
+		return <FestTime key={i} festSets={festSets} userSets={userSets} user={user}/>
 	});
 
 	return (
