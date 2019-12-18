@@ -21,15 +21,15 @@ export default ({ id, start, name, location, updateType, handleFestClick, isNews
 
 	const addToTimelineButtons = 
 		<div className='dib'>
-			<Check className='dib pointer dim' onClick={() => addToTimeline('confirmed')} />
-			<Star className='dib pointer dim' onClick={() => addToTimeline('interested')} />
+			<Check className='dib pointer dim' onClick={() => addToTimeline('confirmed')}/>
+			<Star className='dib pointer dim' onClick={() => addToTimeline('interested')}/>
 		</div>;
 
 	return (
 		<article>
 			{isNewsList ? addToTimelineButtons : null}
-			<Moment className='dib' format='MM.DD.YY' date={start} />
-			<div className='dib pointer dim' onClick={() => handleFestClick(id)} >
+			<Moment className='dib' format='MM.DD.YY' date={start}/>
+			<div className='dib pointer dim' onClick={() => handleFestClick(id)}>
 				<h6 className='dib'>{name}</h6>
 				<h6 className='dib'>{location}</h6>
 				<h6 className='dib'>{updateType}</h6>

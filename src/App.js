@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAll } from './modules/apiManager';
-import { getUserInfo, sortByModifiedDate } from './modules/helpers';
+import { getUserInfo } from './modules/helpers';
+import { reverse, sortBy } from 'lodash';
 import { ReactComponent as Logo } from './assets/Logo.svg';
 import Login from './components/auth/Login';
 import FestList from './components/fest/FestList';
@@ -8,15 +9,16 @@ import Schedule from './components/schedule/Schedule';
 import Timeline from './components/timeline/Timeline';
 import './App.css';
 
+const sortDescending = (arr, sortKey) => reverse(sortBy(arr, sortKey));
+
 export default () => {
   const [scheduleId, setScheduleId] = useState('');
-  const [user, setUser] = useState(getUserInfo()); //maybe remove
+  const [user, setUser] = useState(getUserInfo());
   const [userFests, setUserFests] = useState([]);
-  const [userFestIds, setUserFestIds] = useState([]);
   const [newsFests, setNewsFests] = useState([]);
 
   const getAllFests = () => { 
-    getAll("events?public=true")
+    getAll('events?public=true')
       .then(fests => {
         if (user) {
           getAll('usersToEvents?_expand=event')
@@ -24,12 +26,14 @@ export default () => {
               const currUserFests = events.filter(({ userId }) => user.id === userId);
               const currUserFestIds = currUserFests.map(({ eventId }) => eventId);
               const filteredFests = fests.filter(({ id }) => !currUserFestIds.includes(id));
+              const sortedUserFests = sortDescending(currUserFests, 'start');
 
-              setUserFests(currUserFests);
-              setNewsFests(sortByModifiedDate(filteredFests));
+              setNewsFests(sortDescending(filteredFests, 'modifiedAt'));
+              setUserFests(sortedUserFests);
             });   
-        } 
-        else setNewsFests(sortByModifiedDate(fests));
+        }
+
+        else setNewsFests(sortDescending(fests, 'modifiedAt'));
       });
   };
 
@@ -44,7 +48,7 @@ export default () => {
       <header className='section-banner flex'>
         <section className='w-third'></section>
         <section className='w-third tc'><Logo /></section>
-        <section className='w-third'><Login updateUser={updateUser} /></section>
+        <section className='w-third'><Login updateUser={updateUser}/></section>
       </header>
       <div className='container-main flex'>
         <section className='section-festList'>
@@ -56,7 +60,9 @@ export default () => {
             getAllFests={getAllFests}
           />
         </section>
-        <section className='section-schedule'><Schedule scheduleId={scheduleId} /></section>
+        <section className='section-schedule'>
+          <Schedule scheduleId={scheduleId} user={user}/>
+        </section>
         <section className='section-timeline'>
           <Timeline handleFestClick={handleFestClick} fests={userFests}/>
         </section>

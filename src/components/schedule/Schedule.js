@@ -1,7 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import useAuth from '../../hooks/useAuth';
 import FestDay from './FestDay';
-import { sortBy } from 'lodash';
-import { getItem } from '../../modules/apiManager';
+import { sortBy, reverse } from 'lodash';
+import { getAll } from '../../modules/apiManager';
+import './Schedule.css';
 
 const createDaysObj = arr => {
     const result = {};
@@ -15,27 +17,34 @@ const createDaysObj = arr => {
     return result;
 };
 
-export default ({ scheduleId }) => {
+export default ({ scheduleId, user }) => {
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
-    const [days, setDays] = useState([]);
+    const [festDays, setFestDays] = useState([]);
+    const [userDays, setUserDays] = useState([]);
+    const { isAuthenticated } = useAuth();
 
     const getSchedule = scheduleId => {
         if (scheduleId) {
-            getItem('events', `${scheduleId}?_embed=artistsToEvents`)
+            getAll(`events/${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
                     const daysObj = createDaysObj(artistsToEvents);
 
                     setName(name);
                     setLocation(location);
-                    setDays(daysObj);
+                    setFestDays(daysObj);
             });
         };
+        if (isAuthenticated()) {
+            //getAll('usersToArtistEvents', ``)
+        }
     };
 
     useEffect(() => getSchedule(scheduleId), [scheduleId]);
 
-    const festDayArr = sortBy(days).reverse().map((lineup, i) =>  <FestDay key={i} lineup={lineup} />);
+    const festDaysArr = reverse(sortBy(festDays)).map((lineup, i) => {
+        return <FestDay key={i} festLineup={lineup} user={user}/>
+    });
 
     return (
         <Fragment>
@@ -45,7 +54,7 @@ export default ({ scheduleId }) => {
                 <h5 className='w-60 tc'>{location}</h5>
                 <h4 className='w-20 tr underline'>Your Schedule</h4>
             </header>
-            <section className=''>{festDayArr}</section>
+            <section className='schedule overflow-scroll'>{festDaysArr}</section>
         </Fragment>
     );
 };

@@ -15,11 +15,13 @@ const createTimesObj = arr => {
     return result;
 };
 
-export default ({ lineup }) => {
-	const date = lineup[0].start;
-	const sortedLineup = sortBy(lineup, ({ start }) => new Date(start));
+export default ({ festLineup, user }) => {
+	const date = festLineup[0].start;
+	const sortedLineup = sortBy(festLineup, ({ start }) => new Date(start));
 	const timesObj = createTimesObj(sortedLineup);
-	const festTimesArr = sortBy(timesObj).map((lineup, i) => <FestTime key={i} lineup={lineup} />);
+	const festTimesArr = sortBy(timesObj).map((lineup, i) => {
+		return <FestTime key={i} festLineup={lineup} user={user}/>
+	});
 
 	return (
 		<Fragment>

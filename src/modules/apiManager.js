@@ -5,7 +5,7 @@ export const getItem = (entity, id) => fetch(`${remoteURL}/${entity}/${id}`).the
 export const getAll = entity => fetch(`${remoteURL}/${entity}`).then(result => result.json());
 
 export const deleteItem = (entity, id) => {
-  return fetch(`http://localhost:5002/${entity}/${id}`, {
+  return fetch(`${remoteURL}/${entity}/${id}`, {
       method: "DELETE"
   })
   	.then(r => r.json());
