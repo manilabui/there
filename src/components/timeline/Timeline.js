@@ -1,18 +1,18 @@
-import React, { Fragment, useState, useEffect } from 'react';
-// import FestCard from '../fest/FestCard';
-import { getAll } from '../../modules/apiManager';
+import React, { Fragment } from 'react';
+import useAuth from '../../hooks/useAuth';
+import FestCard from '../fest/FestCard';
 
-export default () => {
-	const [fests, setFests] = useState([]);
+export default props => {
+	const { isAuthenticated } = useAuth();
 
-    const getFests = () => { getAll("events").then(events => setFests(events)) };
-
-    useEffect(getFests, []);
+    const festCardArr = props.fests.map(({ event }) => {
+    	return <FestCard key={event.id} isNewsList={false} {...event} {...props} />
+    });
 
     return (
         <Fragment>
-            <h5 className='fr'>+Create New Fest</h5>
-            {/* <FestCard /> */}
+            <h5 className='fr pointer dim underline'>+ Create New Fest</h5>
+            {isAuthenticated() ? <div>{festCardArr}</div> : null}
         </Fragment>
     );
 };

@@ -1,272 +1,380 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"firstName": "Manila",
-			"lastName": "Bui",
-			"userName": "aluminumfoil",
-			"email": "aluminum@foil.com",
-			"password": "123456",
-			"admin": true
-		},
-		{
-			"id": 2,
-			"firstName": "Matthew",
-			"lastName": "Vo",
-			"userName": "matthewsabel",
-			"email": "matthewsabel@gmail.com",
-			"password": "123456",
-			"admin": true
-		},
-		{
-			"id": 3,
-			"firstName": "Thuy Dung",
-			"lastName": "Tran",
-			"userName": "thighfungus",
-			"email": "thighs@fungus.com",
-			"password": "123456",
-			"admin": true
-		},
-		{
-			"id": 4,
-			"firstName": "Yma",
-			"lastName": "Vo",
-			"userName": "duhast",
-			"email": "du@hast.com",
-			"password": "123456",
-			"admin": true
-		}
-	],
-	"events": [
-		{
-			"id": 1,
-			"name": "Ultra Music Festival",
-			"eventUrl": "https://ultramusicfestival.com/",
-			"location": "Miami, FL, USA",
-			"locationUrl": "https://www.google.com/maps/dir//bayfront+park+miami",
-			"start": "2018-03-23",
-			"end": "2018-03-25",
-			"createdBy": 1,
-			"createdAt": "2019-12-09T21:37:57.000Z",
-			"modifiedAt": "2019-12-09T21:37:57.000Z",
-			"updateType": "Schedule added",
-			"public": true
-		},
-		{
-			"id": 2,
-			"name": "Shaky Beats",
-			"eventUrl": "https://www.shakybeatsfestival.com/",
-			"location": "Atlanta, GA, USA",
-			"locationUrl": "https://www.google.com/maps/dir//atlanta+central+park",
-			"start": "2019-05-10",
-			"end": "2019-05-11",
-			"createdBy": 1,
-			"createdAt": "2019-12-09T21:50:38.000Z",
-			"modifiedAt": "2019-12-09T21:50:38.000Z",
-			"updateType": "Schedule added",
-			"public": true
-		},
-		{
-			"id": 3,
-			"name": "Breakaway Music Festival",
-			"eventUrl": "https://www.tennessee.breakawayfestival.com/",
-			"location": "Nashville, TN, USA",
-			"locationUrl": "https://www.google.com/maps/dir//The+Fairgrounds+Nashville",
-			"start": "2019-10-11",
-			"end": "2019-10-12",
-			"createdBy": 1,
-			"createdAt": "2019-12-10T16:15:04.000Z",
-			"modifiedAt": "2019-12-10T16:15:04.000Z",
-			"updateType": "Schedule added",
-			"public": true
-		},
-		{
-			"id": 4,
-			"name": "Imagine Music Festival",
-			"eventUrl": "https://www.imaginefestival.com/",
-			"location": "Hampton, GA, USA",
-			"locationUrl": "https://www.google.com/maps/dir//atlanta+motor+speedway",
-			"start": "2019-09-19",
-			"end": "2019-09-22",
-			"createdBy": 1,
-			"createdAt": "2019-12-09T21:55:29.000Z",
-			"modifiedAt": "2019-12-09T21:55:29.000Z",
-			"updateType": "Schedule added",
-			"public": true
-		}	
-	],
-	"stages": [
-		{
-			"id": 1,
-			"name": "Ultra Mainstage",
-			"eventId": 1
-		},
-		{
-			"id": 2,
-			"name": "Resistance: Carl Cox Megastructure",
-			"eventId": 1
-		},
-		{
-			"id": 3,
-			"name": "Resistance: Arcadia Spider",
-			"eventId": 1
-		},
-		{
-			"id": 4,
-			"name": "Ultra Worldwide",
-			"eventId": 1
-		},
-		{
-			"id": 5,
-			"name": "The Arrival",
-			"eventId": 1
-		},
-		{
-			"id": 6,
-			"name": "Oasis",
-			"eventId": 1
-		},
-		{
-			"id": 7,
-			"name": "Live Stage",
-			"eventId": 1
-		},
-		{
-			"id": 8,
-			"name": "UMF Radio",
-			"eventId": 1
-		}
-	],
-	"artists": [
-		{
-			"id": 1,
-			"name": "Axwell Λ Ingrosso"
-		},
-		{
-			"id": 2,
-			"name": "DJ Snake"
-		},
-		{
-			"id": 3,
-			"name": "Hardwell"
-		},
-		{
-			"id": 4,
-			"name": "Armin van Buuren"
-		},
-		{
-			"id": 5,
-			"name": "Steve Aoki"
-		},
-		{
-			"id": 6,
-			"name": "Oliver Heldens"
-		},
-		{
-			"id": 7,
-			"name": "Kungs"
-		},
-		{
-			"id": 8,
-			"name": "Raiden"
-		}
-	],
-	"artistsToEvents": [
-		{
-			"id": 1,
-			"start": "2018-03-23T23:00:00.000Z",
-			"end": "2019-03-23T00:00:00.000Z",
-			"day": 1,
-			"artistId": 1,
-			"eventId": 1,
-			"stageId": 1
-		},
-		{
-			"id": 2,
-			"start": "2018-03-23T21:55:00.000Z",
-			"end": "2018-03-23T23:00:00.000Z",
-			"day": 1,
-			"artistId": 2,
-			"eventId": 1,
-			"stageId": 1
-		},
-		{
-			"id": 3,
-			"start": "2018-03-23T20:50:00.000Z",
-			"end": "2018-03-23T21:55:00.000Z",
-			"day": 1,
-			"artistId": 3,
-			"eventId": 1,
-			"stageId": 1	
-		},
-		{
-			"id": 4,
-			"start": "2018-03-23T19:45:00.000Z",
-			"end": "2018-03-23T20:50:00.000Z",
-			"day": 1,
-			"artistId": 4,
-			"eventId": 1,
-			"stageId": 1
-		},
-		{
-			"id": 5,
-			"start": "2018-03-23T18:40:00.000Z",
-			"end": "2018-03-23T19:45:00.000Z",
-			"day": 1,
-			"artistId": 5,
-			"eventId": 1,
-			"stageId": 1
-		},
-		{
-			"id": 6,
-			"start": "2018-03-23T17:35:00.000Z",
-			"end": "2018-03-23T18:40:00.000Z",
-			"day": 1,
-			"artistId": 6,
-			"eventId": 1,
-			"stageId": 1
-		},
-		{
-			"id": 7,
-			"start": "2018-03-23T16:30:00.000Z",
-			"end": "2018-03-23T17:35:00.000Z",
-			"day": 1,
-			"artistId": 7,
-			"eventId": 1,
-			"stageId": 1
-		},
-		{
-			"id": 8,
-			"start": "2018-03-23T16:00:00.000Z",
-			"end": "2018-03-23T16:30:00.000Z",
-			"eventDayId": 1,
-			"artistId": 8,
-			"eventId": 1,
-			"stageId": 1
-		}
-	],
-	"usersToEvents": [
-		{
-			"userId": 1,
-			"eventId": 1,
-			"attendance": "attended"
-		},
-		{
-			"userId": 1,
-			"eventId": 2,
-			"attendance": "attended"
-		}
-	],
-	"usersToArtistEvents": [
-		{
-			"userId": 1,
-			"artistsToEventId": 1,
-			"attendance": "attended"
-		},
-		{
-			"userId": 2,
-			"artistsToEventId": 1,
-			"attendance": "attended"
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Manila",
+      "lastName": "Bui",
+      "userName": "aluminumfoil",
+      "email": "aluminum@foil.com",
+      "password": "123456",
+      "admin": true
+    },
+    {
+      "id": 2,
+      "firstName": "Matthew",
+      "lastName": "Vo",
+      "userName": "matthewsabel",
+      "email": "matthewsabel@gmail.com",
+      "password": "123456",
+      "admin": true
+    },
+    {
+      "id": 3,
+      "firstName": "Thuy Dung",
+      "lastName": "Tran",
+      "userName": "thighfungus",
+      "email": "thighs@fungus.com",
+      "password": "123456",
+      "admin": true
+    },
+    {
+      "id": 4,
+      "firstName": "Yma",
+      "lastName": "Vo",
+      "userName": "duhast",
+      "email": "du@hast.com",
+      "password": "123456",
+      "admin": true
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Ultra Music Festival",
+      "eventUrl": "https://ultramusicfestival.com/",
+      "location": "Miami, FL, USA",
+      "locationUrl": "https://www.google.com/maps/dir//bayfront+park+miami",
+      "start": "2018-03-23",
+      "end": "2018-03-25",
+      "createdBy": 1,
+      "createdAt": "2019-12-09T21:37:57.000Z",
+      "modifiedAt": "2019-12-09T21:37:57.000Z",
+      "updateType": "Schedule added",
+      "public": true
+    },
+    {
+      "id": 2,
+      "name": "Shaky Beats",
+      "eventUrl": "https://www.shakybeatsfestival.com/",
+      "location": "Atlanta, GA, USA",
+      "locationUrl": "https://www.google.com/maps/dir//atlanta+central+park",
+      "start": "2019-05-10",
+      "end": "2019-05-11",
+      "createdBy": 1,
+      "createdAt": "2019-12-09T21:50:38.000Z",
+      "modifiedAt": "2019-12-09T21:50:38.000Z",
+      "updateType": "Schedule added",
+      "public": true
+    },
+    {
+      "id": 3,
+      "name": "Breakaway Music Festival",
+      "eventUrl": "https://www.tennessee.breakawayfestival.com/",
+      "location": "Nashville, TN, USA",
+      "locationUrl": "https://www.google.com/maps/dir//The+Fairgrounds+Nashville",
+      "start": "2019-10-11",
+      "end": "2019-10-12",
+      "createdBy": 1,
+      "createdAt": "2019-12-10T16:15:04.000Z",
+      "modifiedAt": "2019-12-10T16:15:04.000Z",
+      "updateType": "Schedule added",
+      "public": true
+    },
+    {
+      "id": 4,
+      "name": "Imagine Music Festival",
+      "eventUrl": "https://www.imaginefestival.com/",
+      "location": "Hampton, GA, USA",
+      "locationUrl": "https://www.google.com/maps/dir//atlanta+motor+speedway",
+      "start": "2019-09-19",
+      "end": "2019-09-22",
+      "createdBy": 1,
+      "createdAt": "2019-12-09T21:55:29.000Z",
+      "modifiedAt": "2019-12-09T21:55:29.000Z",
+      "updateType": "Schedule added",
+      "public": true
+    }
+  ],
+  "stages": [
+    {
+      "id": 1,
+      "name": "Ultra Mainstage",
+      "eventId": 1
+    },
+    {
+      "id": 2,
+      "name": "Resistance: Carl Cox Megastructure",
+      "eventId": 1
+    },
+    {
+      "id": 3,
+      "name": "Resistance: Arcadia Spider",
+      "eventId": 1
+    },
+    {
+      "id": 4,
+      "name": "Ultra Worldwide",
+      "eventId": 1
+    },
+    {
+      "id": 5,
+      "name": "The Arrival",
+      "eventId": 1
+    },
+    {
+      "id": 6,
+      "name": "Oasis",
+      "eventId": 1
+    },
+    {
+      "id": 7,
+      "name": "Live Stage",
+      "eventId": 1
+    },
+    {
+      "id": 8,
+      "name": "UMF Radio",
+      "eventId": 1
+    }
+  ],
+  "artists": [
+    {
+      "id": 1,
+      "name": "Axwell Λ Ingrosso"
+    },
+    {
+      "id": 2,
+      "name": "DJ Snake"
+    },
+    {
+      "id": 3,
+      "name": "Hardwell"
+    },
+    {
+      "id": 4,
+      "name": "Armin van Buuren"
+    },
+    {
+      "id": 5,
+      "name": "Steve Aoki"
+    },
+    {
+      "id": 6,
+      "name": "Oliver Heldens"
+    },
+    {
+      "id": 7,
+      "name": "Kungs"
+    },
+    {
+      "id": 8,
+      "name": "Raiden"
+    },
+    {
+      "id": 9,
+      "name": "Carl Cox"
+    },
+    {
+      "id": 10,
+      "name": "Adam Beyer"
+    },
+    {
+      "id": 11,
+      "name": "Jamie Jones"
+    },
+    {
+      "id": 12,
+      "name": "Maceo Plex"
+    },
+    {
+      "id": 13,
+      "name": "Dubfire / Nicole Moudaber / Paco Osuna"
+    },
+    {
+      "id": 14,
+      "name": "Nastia"
+    },
+    {
+      "id": 15,
+      "name": "Frankie Bones"
+    },
+    {
+      "id": 16,
+      "name": "Jon Rundell"
+    }
+  ],
+  "artistsToEvents": [
+    {
+      "id": 1,
+      "start": "2018-03-23T23:00",
+      "end": null,
+      "day": 1,
+      "artistId": 1,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 2,
+      "start": "2018-03-23T21:55",
+      "end": null,
+      "day": 1,
+      "artistId": 2,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 3,
+      "start": "2018-03-23T20:50",
+      "end": null,
+      "day": 1,
+      "artistId": 3,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 4,
+      "start": "2018-03-23T19:45",
+      "end": null,
+      "day": 1,
+      "artistId": 4,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 5,
+      "start": "2018-03-23T18:40",
+      "end": null,
+      "day": 1,
+      "artistId": 5,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 6,
+      "start": "2018-03-23T17:35",
+      "end": null,
+      "day": 1,
+      "artistId": 6,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 7,
+      "start": "2018-03-23T16:30",
+      "end": null,
+      "day": 1,
+      "artistId": 7,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 8,
+      "start": "2018-03-23T16:00",
+      "end": null,
+      "day": 1,
+      "artistId": 8,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 9,
+      "start": "2018-03-24T22:00",
+      "end": null,
+      "day": 2,
+      "artistId": 9,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 10,
+      "start": "2018-03-23T20:30",
+      "end": null,
+      "day": 1,
+      "artistId": 10,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 11,
+      "start": "2018-03-24T20:30",
+      "end": null,
+      "day": 2,
+      "artistId": 11,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 12,
+      "start": "2018-03-24T19:00",
+      "end": null,
+      "day": 2,
+      "artistId": 12,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 13,
+      "start": "2018-03-24T16:30",
+      "end": null,
+      "day": 2,
+      "artistId": 13,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 14,
+      "start": "2018-03-24T15:00",
+      "end": null,
+      "day": 2,
+      "artistId": 14,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 15,
+      "start": "2018-03-24T13:30",
+      "end": null,
+      "day": 2,
+      "artistId": 15,
+      "eventId": 1,
+      "stageId": 2
+    },
+    {
+      "id": 16,
+      "start": "2018-03-24T12:00",
+      "end": null,
+      "day": 2,
+      "artistId": 16,
+      "eventId": 1,
+      "stageId": 2
+    }
+  ],
+  "usersToEvents": [
+    {
+      "id": 1,
+      "userId": 1,
+      "eventId": 1,
+      "attendance": "confirmed"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "eventId": 2,
+      "attendance": "confirmed"
+    }
+  ],
+  "usersToArtistEvents": [
+    {
+      "id": 1,
+      "userId": 1,
+      "artistsToEventId": 1,
+      "attendance": "confirmed"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "artistsToEventId": 1,
+      "attendance": "confirmed"
+    }
+  ]
 }
