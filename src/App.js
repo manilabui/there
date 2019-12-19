@@ -42,7 +42,6 @@ export default () => {
   const updateUser = user => setUser(user);
   const handleFestClick = id => setScheduleId(id);
   const updateFestList = arr => setNewsFests(arr);
-  const handleTimelineUpdate = event => console.log(event);
 
   return (
     <div className='avenir'>
@@ -58,7 +57,6 @@ export default () => {
             user={user}
             updateFestList={updateFestList}
             handleFestClick={handleFestClick}
-            handleTimelineUpdate={handleTimelineUpdate}
             getAllFests={getAllFests}
           />
         </section>
@@ -66,11 +64,7 @@ export default () => {
           <Schedule scheduleId={scheduleId} user={user}/>
         </section>
         <section className='section-timeline'>
-          <Timeline 
-            fests={userFests}
-            handleFestClick={handleFestClick}  
-            handleTimelineUpdate={handleTimelineUpdate}
-          />
+          <Timeline fests={userFests} handleFestClick={handleFestClick}/>
         </section>
       </div>
       <footer className='absolute bottom-0'>
