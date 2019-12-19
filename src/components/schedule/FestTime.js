@@ -8,9 +8,15 @@ export default ({ festSets, userSets, user }) => {
 	const festSetsArr = festSets.length
 		? festSets.map(({ id }) => <LineupCard key={id} setId={id} isPublic={true} user={user}/>)
 		: '';
-	
 	const userSetsArr = userSets 
-		? userSets.map(({ id }) => <LineupCard key={id} setId={id} isPublic={false} user={user}/>)
+		? userSets.map(({ id, userToArtistsEventId }) =>
+			<LineupCard 
+				key={id} 
+				setId={id} 
+				isPublic={false}
+				userToArtistsEventId={userToArtistsEventId}
+			/>
+		)
 		: '';
 
 	return (

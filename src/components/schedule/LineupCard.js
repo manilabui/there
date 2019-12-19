@@ -2,9 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
 import { ReactComponent as CloseIcon } from '../../assets/closeIcon.svg';
-import { getItem, postItem } from '../../modules/apiManager';
+import { getItem, postItem, deleteItem } from '../../modules/apiManager';
 
-export default ({ setId, user, isPublic }) => {
+export default ({ setId, user, isPublic, userToArtistsEventId }) => {
 	const [artist, setArtist] = useState('Artist');
 	const [stage, setStage] = useState('Stage');
 
@@ -28,11 +28,18 @@ export default ({ setId, user, isPublic }) => {
 		postItem('usersToArtistEvents', item);
 	};
 
+	const removeFromUserSchedule = () => {
+		deleteItem('usersToArtistEvents', userToArtistsEventId);
+	};
+
 	const addToUserScheduleButtons =
 		<Fragment>
 			<Check className='dib pointer dim' onClick={() => addToUserSchedule('confirmed')}/>
 			<Star className='dib pointer dim' onClick={() => addToUserSchedule('interested')}/>
 		</Fragment>;
+
+	const removeFromUserScheduleButton =
+		<CloseIcon className='dib pointer dim' onClick={removeFromUserSchedule}/>;
 
 	return (
 		<article>
@@ -41,7 +48,7 @@ export default ({ setId, user, isPublic }) => {
 				<h6 className='dib'>{artist}</h6>
 				<h6 className='dib'>{stage}</h6>
 			</div>
-			{!isPublic ? <CloseIcon className='dib pointer dim'/> : null}
+			{!isPublic ? removeFromUserScheduleButton : null}
 		</article>
 	);
 };
