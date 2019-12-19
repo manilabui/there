@@ -23,13 +23,15 @@ export default ({ festLineup, userLineup, user }) => {
 	const userTimes = userLineup ? createTimesObj(sortedUserLineup) : null;
 	const festTimesArr = sortBy(festTimes).map((lineup, i) => {
 		const currTime = lineup[0].start.slice(-5);
+		// empty arrays rather than null to match festSets, which will never be null
+		// also for pushing any changes user makes to their schedule
 		const userSets = userTimes 
-			? (userTimes[currTime] ? userTimes[currTime] : null)
-			: null;
-        const userSetIds = userSets 
+			? (userTimes[currTime] ? userTimes[currTime] : [])
+			: [];
+        const userSetIds = userSets.length
             ? userSets.map(({ artistsToEventId }) => artistsToEventId) 
             : null;
-        const festSets = userSets
+        const festSets = userSets.length
         	? userSets.filter(({ id }) => userSetIds.includes(id)) 
         	: lineup;
 

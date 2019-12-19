@@ -22,7 +22,21 @@ export default ({ scheduleId, user }) => {
     const [festDays, setFestDays] = useState([]);
     const [userDays, setUserDays] = useState([]);
 
-    const getSchedule = scheduleId => {
+    const getUserSchedule = () => {
+        getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
+            .then(events => {
+                const userArtistsToEvents = events.map(({ id, artistsToEvent }) => {
+                    // userArtistsToEventId needed in the obj for removal of set from db
+                    return {userToArtistsEventId: id, ...artistsToEvent};
+                });
+
+                const userDaysObj = createDaysObj(userArtistsToEvents);
+
+                setUserDays(userDaysObj);
+            });
+    };
+
+    const getSchedules = () => {
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
@@ -33,31 +47,15 @@ export default ({ scheduleId, user }) => {
                     setFestDays(daysObj);
             });
         };
-        if (user) {
-            getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
-                .then(events => {
-                    const userArtistsToEvents = events.map(({ id, artistsToEvent }) => {
-                        // userArtistsToEventId needed in the obj for removal of set from db
-                        return {userToArtistsEventId: id, ...artistsToEvent};
-                    });
-
-                    const userDaysObj = createDaysObj(userArtistsToEvents);
-
-                    setUserDays(userDaysObj);
-                });
-        };
+        if (user) getUserSchedule();
     };
 
-    useEffect(() => getSchedule(scheduleId), [scheduleId, user]);
+    useEffect(getSchedules, [scheduleId, user]);
 
     const festDaysArr = reverse(sortBy(festDays)).map((lineup, i) => {
         const currDay = lineup[0].day;
         const userLineup = userDays[currDay] ? userDays[currDay] : null;
-        // const userLineupIds = userLineup ? userLineup.map(({ id }) => id) : null;
-        // const festLineup = userLineup 
-        //     ? userLineup.filter(({ id }) => userLineupIds.includes(id)) 
-        //     : lineup;
-            
+
         return <FestDay key={i} festLineup={lineup} userLineup={userLineup} user={user}/>
     });
 

@@ -6,28 +6,28 @@ export const getAll = entity => fetch(`${remoteURL}/${entity}`).then(result => r
 
 export const deleteItem = (entity, id) => {
   return fetch(`${remoteURL}/${entity}/${id}`, {
-      method: "DELETE"
+    method: "DELETE"
   })
   	.then(r => r.json());
 };
 
 export const postItem = (entity, item) => {
-    return fetch(`${remoteURL}/${entity}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(item)
-    })
-    	.then(r => r.json());
+  return fetch(`${remoteURL}/${entity}`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(item)
+  })
+  	.then(r => r.json());
 };
 
 export const updateItem = (entity, item) => {
-    return fetch(`${remoteURL}/${entity}/${item.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(item)
-    }).then(r => r.json());
-  };
+  return fetch(`${remoteURL}/${entity}/${item.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(item)
+  }).then(r => r.json());
+};
