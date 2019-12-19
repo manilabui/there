@@ -32,7 +32,7 @@ export default ({ festLineup, userLineup, user }) => {
             ? userSets.map(({ artistsToEventId }) => artistsToEventId) 
             : null;
         const festSets = userSets.length
-        	? userSets.filter(({ id }) => userSetIds.includes(id)) 
+        	? userSets.filter(({ id }) => userSetIds.includes(id))
         	: lineup;
 
 		return <FestTime key={i} festSets={festSets} userSets={userSets} user={user}/>

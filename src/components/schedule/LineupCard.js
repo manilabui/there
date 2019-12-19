@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
 import { ReactComponent as CloseIcon } from '../../assets/closeIcon.svg';
-import { getItem, postItem, deleteItem } from '../../modules/apiManager';
+import { getItem, postItem, patchItem, deleteItem } from '../../modules/apiManager';
 
 export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 	const [artist, setArtist] = useState('');
@@ -29,7 +29,21 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 			.then(currSet => {
 				// format set like festSet objects
 				set.userToArtistsEventId = currSet.id;
-				handleUserToArtistEventUpdate(set);
+				set.attendance = attendance;
+				handleUserToArtistEventUpdate(set, 'post');
+			});
+	};
+
+	const editUserScheduleItem = attendance => {
+		const item = {
+			id: set.userToArtistsEventId,
+			attendance
+		}
+
+		patchItem('usersToArtistEvents', item)
+			.then(currSet => {
+				set.attendance = currSet.attendance;
+				handleUserToArtistEventUpdate(set, 'patch');
 			});
 	};
 
@@ -37,7 +51,7 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 		deleteItem('usersToArtistEvents', set.userToArtistsEventId);
 		// format set like festSet objects
 		delete set.userToArtistsEventId;
-		handleUserToArtistEventUpdate(set);
+		handleUserToArtistEventUpdate(set, 'delete');
 	};
 
 	const festSideButtons =
@@ -46,8 +60,14 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 			<Star className='dib pointer dim' onClick={() => addToUserSchedule('interested')}/>
 		</Fragment>;
 
-	const removeFromUserScheduleButton =
-		<CloseIcon className='dib pointer dim' onClick={removeFromUserSchedule}/>;
+	const userSideButtons =
+		<Fragment>
+			{set.attendance === 'interested'
+				? <Check className='dib pointer dim' onClick={() => editUserScheduleItem('confirmed')}/>
+				: <Star className='dib pointer dim' onClick={() => editUserScheduleItem('interested')}/>
+			}
+			<CloseIcon className='dib pointer dim' onClick={removeFromUserSchedule}/>
+		</Fragment>;
 
 	return (
 		<article>
@@ -56,7 +76,7 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 				<h6 className='dib'>{artist}</h6>
 				<h6 className='dib'>{stage}</h6>
 			</div>
-			{!isPublic ? removeFromUserScheduleButton : null}
+			{!isPublic ? userSideButtons : null}
 		</article>
 	);
 };

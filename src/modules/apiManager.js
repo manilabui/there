@@ -22,6 +22,17 @@ export const postItem = (entity, item) => {
   	.then(r => r.json());
 };
 
+export const patchItem = (entity, item) => {
+  return fetch(`${remoteURL}/${entity}/${item.id}`, {
+    method: "PATCH",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(item)
+  })
+    .then(r => r.json());
+};
+
 export const updateItem = (entity, item) => {
   return fetch(`${remoteURL}/${entity}/${item.id}`, {
     method: "PUT",

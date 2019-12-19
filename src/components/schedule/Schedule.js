@@ -25,11 +25,11 @@ export default ({ scheduleId, user }) => {
     const getUserSchedule = () => {
         getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
             .then(events => {
-                const userArtistsToEvents = events.map(({ id, artistsToEvent }) => {
+                const userArtistsToEvents = events.map(({ id, artistsToEvent, attendance }) => {
                     // userArtistsToEventId needed in the obj for removal of set from db
-                    return {userToArtistsEventId: id, ...artistsToEvent};
+                    // attendance needed to differentiate styling in the user's schedule
+                    return {userToArtistsEventId: id, attendance, ...artistsToEvent};
                 });
-
                 const userDaysObj = createDaysObj(userArtistsToEvents);
 
                 setUserDays(userDaysObj);
