@@ -4,11 +4,11 @@ import Moment from 'react-moment';
 import LineupCard from './LineupCard';
 
 export default ({ festSets, userSets, user }) => {
-	const date = festSets[0].start;
-	const festSetsArr = festSets.map(({ id }) => {
-		return <LineupCard key={id} setId={id} isPublic={true} user={user}/>
-	});
-	// TO DO: user schedule
+	const date = festSets.length ? festSets[0].start : userSets[0].start;
+	const festSetsArr = festSets.length
+		? festSets.map(({ id }) => <LineupCard key={id} setId={id} isPublic={true} user={user}/>)
+		: '';
+	
 	const userSetsArr = userSets 
 		? userSets.map(({ id }) => <LineupCard key={id} setId={id} isPublic={false} user={user}/>)
 		: '';

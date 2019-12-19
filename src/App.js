@@ -37,7 +37,7 @@ export default () => {
       });
   };
 
-  useEffect(getAllFests, [user, userFests]);
+  useEffect(getAllFests, [user]);
 
   const updateUser = user => setUser(user);
   const handleFestClick = id => setScheduleId(id);

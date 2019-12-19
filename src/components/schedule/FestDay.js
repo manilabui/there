@@ -29,7 +29,7 @@ export default ({ festLineup, userLineup, user }) => {
         const userSetIds = userSets 
             ? userSets.map(({ artistsToEventId }) => artistsToEventId) 
             : null;
-        const festSets = userSets 
+        const festSets = userSets
         	? userSets.filter(({ id }) => userSetIds.includes(id)) 
         	: lineup;
 
