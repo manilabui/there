@@ -17,6 +17,7 @@ const createDaysObj = arr => {
 };
 
 export default ({ scheduleId, user }) => {
+    const [currUser, setCurrUser] = useState(user);
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
     const [festDays, setFestDays] = useState([]);
@@ -37,6 +38,7 @@ export default ({ scheduleId, user }) => {
     };
 
     const getSchedules = () => {
+        if (user === null) console.log("null user")
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
@@ -50,7 +52,7 @@ export default ({ scheduleId, user }) => {
         if (user) getUserSchedule();
     };
 
-    useEffect(getSchedules, [scheduleId, user]);
+    useEffect(getSchedules, [scheduleId, currUser]);
 
     const festDaysArr = reverse(sortBy(festDays)).map((lineup, i) => {
         const currDay = lineup[0].day;

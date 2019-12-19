@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import useAuth from '../../hooks/useAuth';
 import Moment from 'react-moment';
 import LineupCard from './LineupCard';
 
@@ -7,7 +6,6 @@ import LineupCard from './LineupCard';
 export default ({ festSets, userSets, user }) => {
 	const [festSetsArr, setFestSetsArr] = useState([]);
 	const [userSetsArr, setUserSetsArr] = useState([]);
-	const { isAuthenticated } = useAuth();
 
 	const date = festSets.length ? festSets[0].start : userSets[0].start;
 
@@ -59,7 +57,7 @@ export default ({ festSets, userSets, user }) => {
 			<section className='flex column'>
 				<article className='w-40 tl'>{festSetsArr}</article>
 				<article className='w-20 tc'><Moment format='h:mm A' date={date} /></article>
-				{isAuthenticated() ? <article className='w-40 tr'>{userSetsArr}</article> : ''}
+				<article className='w-40 tr'>{userSetsArr}</article>
 			</section>
 			<hr/>
 		</Fragment>
