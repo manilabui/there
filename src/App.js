@@ -41,7 +41,7 @@ export default () => {
   
   const updateUser = user => setUser(user);
   const handleFestClick = id => setScheduleId(id);
-  const updateFestList = arr => setNewsFests(arr); 
+  const updateFestList = arr => setNewsFests(arr);
 
   return (
     <div className='avenir'>
@@ -64,7 +64,7 @@ export default () => {
           <Schedule scheduleId={scheduleId} user={user}/>
         </section>
         <section className='section-timeline'>
-          <Timeline handleFestClick={handleFestClick} fests={userFests}/>
+          <Timeline fests={userFests} handleFestClick={handleFestClick}/>
         </section>
       </div>
       <footer className='absolute bottom-0'>

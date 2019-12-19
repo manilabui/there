@@ -40,7 +40,7 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 		handleUserToArtistEventUpdate(set);
 	};
 
-	const addToUserScheduleButtons =
+	const festSideButtons =
 		<Fragment>
 			<Check className='dib pointer dim' onClick={() => addToUserSchedule('confirmed')}/>
 			<Star className='dib pointer dim' onClick={() => addToUserSchedule('interested')}/>
@@ -51,7 +51,7 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 
 	return (
 		<article>
-			{isPublic ? addToUserScheduleButtons : null}
+			{isPublic ? festSideButtons : null}
 			<div className='dib'>
 				<h6 className='dib'>{artist}</h6>
 				<h6 className='dib'>{stage}</h6>
