@@ -5,7 +5,7 @@ import { postItem } from '../../modules/apiManager';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
 
-export default ({ id, start, name, location, updateType, handleFestClick, isNewsList, user }) => {
+export default ({ id, start, name, location, updateType, handleFestClick, handleTimelineUpdate, isNewsList, user }) => {
 	if (name.includes('Music Festival')) name = name.split(' Music Festival')[0];
 	if (location.includes('USA')) location = location.split(', USA')[0];
 
@@ -16,7 +16,8 @@ export default ({ id, start, name, location, updateType, handleFestClick, isNews
 			attendance
 		};
 
-		postItem('usersToEvents', item);
+		postItem('usersToEvents', item)
+			.then(event => handleTimelineUpdate(event));
 	};
 
 	const addToTimelineButtons = 

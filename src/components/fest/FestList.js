@@ -1,10 +1,11 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import FestCard from './FestCard';
 import { toLower } from 'lodash';
 import './FestList.css';
 
 export default props => {
     const { fests, updateFestList } = props;
+    //const [festNews, setFestNews] = useState([]);
     const searchInput = useRef();
     
     const getSearchResults = () => {
