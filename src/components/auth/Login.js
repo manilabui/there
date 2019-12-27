@@ -24,6 +24,7 @@ export default ({ updateUser }) => {
     const handleLogout = () => {
     	logout();
     	updateUser(getUserInfo());
+    	// window.location.reload(false);
     };
 
 	const form = type => {

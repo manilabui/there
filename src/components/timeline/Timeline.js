@@ -11,7 +11,7 @@ export default props => {
 
     return (
         <Fragment>
-            <h5 className='fr pointer dim underline'>+ Create New Fest</h5>
+            {/* <h5 className='fr pointer dim underline'>+ Create New Fest</h5> */}
             {isAuthenticated() ? <div>{festCardArr}</div> : null}
         </Fragment>
     );

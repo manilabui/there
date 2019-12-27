@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import FestDay from './FestDay';
-import { sortBy, reverse } from 'lodash';
+import { sortBy, reverse, isEmpty } from 'lodash';
 import { getAll, getItem } from '../../modules/apiManager';
+import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
+import FestDay from './FestDay';
 import './Schedule.css';
 
 const createDaysObj = arr => {
@@ -19,17 +20,17 @@ const createDaysObj = arr => {
 export default ({ scheduleId, user }) => {
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
-    const [festDays, setFestDays] = useState([]);
-    const [userDays, setUserDays] = useState([]);
+    const [festDays, setFestDays] = useState({});
+    const [userDays, setUserDays] = useState({});
 
     const getUserSchedule = () => {
         getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
             .then(events => {
-                const userArtistsToEvents = events.map(({ id, artistsToEvent }) => {
+                const userArtistsToEvents = events.map(({ id, artistsToEvent, attendance }) => {
                     // userArtistsToEventId needed in the obj for removal of set from db
-                    return {userToArtistsEventId: id, ...artistsToEvent};
+                    // attendance needed to differentiate styling in the user's schedule
+                    return {userToArtistsEventId: id, attendance, ...artistsToEvent};
                 });
-
                 const userDaysObj = createDaysObj(userArtistsToEvents);
 
                 setUserDays(userDaysObj);
