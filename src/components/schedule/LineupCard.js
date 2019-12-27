@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import useAuth from '../../hooks/useAuth';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
 import { ReactComponent as CloseIcon } from '../../assets/closeIcon.svg';
@@ -7,6 +8,7 @@ import { getItem, postItem, patchItem, deleteItem } from '../../modules/apiManag
 export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 	const [artist, setArtist] = useState('');
 	const [stage, setStage] = useState('');
+	const { isAuthenticated } = useAuth();
 
 	const getSet = () => { 
 		getItem('artistsToEvents', `${set.id}?&_expand=artist&_expand=stage`)
@@ -19,19 +21,23 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 	useEffect(getSet, []);
 
 	const addToUserSchedule = attendance => {
-		const item = {
-			userId: user.id,
-			artistsToEventId: set.id,
-			attendance
-		};
+		if (isAuthenticated()) {
+			const item = {
+				userId: user.id,
+				artistsToEventId: set.id,
+				attendance
+			};
 
-		postItem('usersToArtistEvents', item)
-			.then(currSet => {
-				// format set like festSet objects
-				set.userToArtistsEventId = currSet.id;
-				set.attendance = attendance;
-				handleUserToArtistEventUpdate(set, 'post');
-			});
+			postItem('usersToArtistEvents', item)
+				.then(currSet => {
+					// format set like festSet objects
+					set.userToArtistsEventId = currSet.id;
+					set.attendance = attendance;
+					handleUserToArtistEventUpdate(set, 'post');
+				});
+		} else {
+			window.alert('Sign in to add create your own fest schedule.');
+		};
 	};
 
 	const editUserScheduleItem = attendance => {

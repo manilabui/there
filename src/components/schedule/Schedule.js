@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import FestDay from './FestDay';
-import { sortBy, reverse } from 'lodash';
+import { sortBy, reverse, isEmpty } from 'lodash';
 import { getAll, getItem } from '../../modules/apiManager';
+import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
+import FestDay from './FestDay';
 import './Schedule.css';
 
 const createDaysObj = arr => {
@@ -19,8 +20,8 @@ const createDaysObj = arr => {
 export default ({ scheduleId, user }) => {
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
-    const [festDays, setFestDays] = useState([]);
-    const [userDays, setUserDays] = useState([]);
+    const [festDays, setFestDays] = useState({});
+    const [userDays, setUserDays] = useState({});
 
     const getUserSchedule = () => {
         getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
@@ -37,7 +38,6 @@ export default ({ scheduleId, user }) => {
     };
 
     const getSchedules = () => {
-        if (user === null) console.log("null user")
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
