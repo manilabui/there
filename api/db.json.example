@@ -16,7 +16,7 @@
       "userName": "matthewsabel",
       "email": "matthewsabel@gmail.com",
       "password": "123456",
-      "admin": true
+      "admin": false
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "userName": "thighfungus",
       "email": "thighs@fungus.com",
       "password": "123456",
-      "admin": true
+      "admin": false
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "userName": "duhast",
       "email": "du@hast.com",
       "password": "123456",
-      "admin": true
+      "admin": false
     }
   ],
   "events": [
@@ -49,7 +49,7 @@
       "createdBy": 1,
       "createdAt": "2019-12-09T21:37:57.000Z",
       "modifiedAt": "2019-12-09T21:37:57.000Z",
-      "updateType": "Schedule added",
+      "updateType": "Schedule announced",
       "public": true
     },
     {
@@ -63,7 +63,7 @@
       "createdBy": 1,
       "createdAt": "2019-12-09T21:50:38.000Z",
       "modifiedAt": "2019-12-09T21:50:38.000Z",
-      "updateType": "Schedule added",
+      "updateType": "Schedule announced",
       "public": true
     },
     {
@@ -77,7 +77,7 @@
       "createdBy": 1,
       "createdAt": "2019-12-10T16:15:04.000Z",
       "modifiedAt": "2019-12-10T16:15:04.000Z",
-      "updateType": "Schedule added",
+      "updateType": "Schedule announced",
       "public": true
     },
     {
@@ -91,7 +91,175 @@
       "createdBy": 1,
       "createdAt": "2019-12-09T21:55:29.000Z",
       "modifiedAt": "2019-12-09T21:55:29.000Z",
-      "updateType": "Schedule added",
+      "updateType": "Schedule announced",
+      "public": true
+    },
+    {
+      "id": 5,
+      "name": "Electric Daisy Carnival",
+      "eventUrl": "https://mexico.electricdaisycarnival.com/",
+      "location": "Mexico City, MX",
+      "locationUrl": "https://www.google.com/maps/dir//Aut%C3%B3dromo+Hermanos+Rodr%C3%ADguez",
+      "start": "2020-02-28",
+      "end": "2020-03-01",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T09:40:57.000Z",
+      "modifiedAt": "2020-01-01T09:40:57.000Z",
+      "updateType": "Lineup announced",
+      "public": true
+    },
+    {
+      "id": 6,
+      "name": "Ultra Music Festival",
+      "eventUrl": "https://ultramusicfestival.com/",
+      "location": "Miami, FL, USA",
+      "locationUrl": "https://www.google.com/maps/dir//bayfront+park+miami",
+      "start": "2020-03-20",
+      "end": "2020-03-22",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T09:37:57.000Z",
+      "modifiedAt": "2020-01-01T09:37:57.000Z",
+      "updateType": "Phase 1 announced",
+      "public": true
+    },
+    {
+      "id": 7,
+      "name": "M3F",
+      "eventUrl": "https://www.m3ffest.com/",
+      "location": "Phoenix, AZ, USA",
+      "locationUrl": "https://www.google.com/maps/dir//hance+park+az",
+      "start": "2020-03-06",
+      "end": "2020-03-08",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:00:57.000Z",
+      "modifiedAt": "2020-01-01T10:00:57.000Z",
+      "updateType": "Lineup announced",
+      "public": true
+    },
+    {
+      "id": 8,
+      "name": "Crssd Festival",
+      "eventUrl": "https://www.crssdfest.com/",
+      "location": "San Diego, CA, USA",
+      "locationUrl": "https://www.google.com/maps/dir//Waterfront+Park+San+Diego",
+      "start": "2020-03-07",
+      "end": "2020-03-08",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:12:57.000Z",
+      "modifiedAt": "2020-01-01T10:12:57.000Z",
+      "updateType": "Phase 1 announced",
+      "public": true
+    },
+    {
+      "id": 9,
+      "name": "Buku",
+      "eventUrl": "https://www.thebukuproject.com/",
+      "location": "New Orleans, LA, USA",
+      "locationUrl": "https://www.google.com/maps/dir//mardi+gras+world+new+Orleans",
+      "start": "2020-03-20",
+      "end": "2020-03-21",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:20:57.000Z",
+      "modifiedAt": "2020-01-01T10:20:57.000Z",
+      "updateType": "Lineup announced",
+      "public": true
+    },
+    {
+      "id": 10,
+      "name": "Beyond Wonderland",
+      "eventUrl": "https://beyondwonderland.com/",
+      "location": "San Bernardino, CA, USA",
+      "locationUrl": "https://www.google.com/maps/dir//NOS+event+center",
+      "start": "2020-03-20",
+      "end": "2020-03-21",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:20:57.000Z",
+      "modifiedAt": "2020-01-01T10:20:57.000Z",
+      "updateType": "Date announced",
+      "public": true
+    },
+    {
+      "id": 11,
+      "name": "Phoenix Lights",
+      "eventUrl": "https://phoenixlightsfest.com/",
+      "location": "Chandler, AZ, USA",
+      "locationUrl": "https://www.google.com/maps/dir//Wild+Horse+Pass+Motorsports+Park",
+      "start": "2020-04-03",
+      "end": "2020-04-04",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:35:57.000Z",
+      "modifiedAt": "2020-01-01T10:35:57.000Z",
+      "updateType": "Phase 1 lineup",
+      "public": true
+    },
+    {
+      "id": 12,
+      "name": "Ubbi Dubbi",
+      "eventUrl": "https://ubbidubbifestival.com/",
+      "location": "Arlington, TX, USA",
+      "locationUrl": "https://www.google.com/maps/dir//globe+life+park+arlington",
+      "start": "2020-04-18",
+      "end": "2020-04-19",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:43:57.000Z",
+      "modifiedAt": "2020-01-01T10:43:57.000Z",
+      "updateType": "Phase 1 lineup",
+      "public": true
+    },
+    {
+      "id": 13,
+      "name": "Electric Daisy Carnival",
+      "eventUrl": "https://lasvegas.electricdaisycarnival.com/",
+      "location": "Las Vegas, NV, USA",
+      "locationUrl": "https://www.google.com/maps/dir//las+vegas+motor+speedway",
+      "start": "2020-05-15",
+      "end": "2020-05-17",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:48:57.000Z",
+      "modifiedAt": "2020-01-01T10:48:57.000Z",
+      "updateType": "Date announced",
+      "public": true
+    },
+    {
+      "id": 14,
+      "name": "Hangout Fest",
+      "eventUrl": "https://www.hangoutmusicfest.com/",
+      "location": "Gulf Shores, AL, USA",
+      "locationUrl": "https://www.google.com/maps/dir//The+Hangout+Gulf+Shores",
+      "start": "2020-05-15",
+      "end": "2020-05-17",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:56:57.000Z",
+      "modifiedAt": "2020-01-01T10:56:57.000Z",
+      "updateType": "Date announced",
+      "public": true
+    },
+    {
+      "id": 15,
+      "name": "InfieldFest",
+      "eventUrl": "https://www.infieldfest.com/",
+      "location": "Baltimore, MD, USA",
+      "locationUrl": "https://www.google.com/maps/dir//pimlico+race+course",
+      "start": "2020-05-16",
+      "end": "2020-05-16",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T10:56:57.000Z",
+      "modifiedAt": "2020-01-01T10:56:57.000Z",
+      "updateType": "Date announced",
+      "public": true
+    },
+    {
+      "id": 16,
+      "name": "Lightning in a Bottle",
+      "eventUrl": "https://lightninginabottle.org/",
+      "location": "Kern County, CA, USA",
+      "locationUrl": "https://www.google.com/maps/dir//Buena+Vista+Aquatic+Recreational+Area",
+      "start": "2020-05-20",
+      "end": "2020-05-25",
+      "createdBy": 1,
+      "createdAt": "2020-01-01T11:05:57.000Z",
+      "modifiedAt": "2020-01-01T11:05:57.000Z",
+      "updateType": "Date announced",
       "public": true
     }
   ],
@@ -201,6 +369,90 @@
     {
       "id": 16,
       "name": "Jon Rundell"
+    },
+    {
+      "id": 17,
+      "name": "Swedish House Mafia"
+    },
+    {
+      "id": 18,
+      "name": "David Guetta"
+    },
+    {
+      "id": 19,
+      "name": "Kaskade"
+    },
+    {
+      "id": 20,
+      "name": "KSHMR"
+    },
+    {
+      "id": 21,
+      "name": "Nicky Romero"
+    },
+    {
+      "id": 22,
+      "name": "Dash Berlin"
+    },
+    {
+      "id": 23,
+      "name": "Sunnery James & Ryan Marciano"
+    },
+    {
+      "id": 24,
+      "name": "Matoma"
+    },
+    {
+      "id": 25,
+      "name": "Tommie Sunshine"
+    },
+    {
+      "id": 26,
+      "name": "Kryoman"
+    },
+    {
+      "id": 27,
+      "name": "The Chainsmokers"
+    },
+    {
+      "id": 28,
+      "name": "Marshmello"
+    },
+    {
+      "id": 29,
+      "name": "Afrojack"
+    },
+    {
+      "id": 30,
+      "name": "Tiësto"
+    },
+    {
+      "id": 31,
+      "name": "Jauz"
+    },
+    {
+      "id": 32,
+      "name": "Alan Walker"
+    },
+    {
+      "id": 33,
+      "name": "Fedde Le Grand"
+    },
+    {
+      "id": 34,
+      "name": "Cheat Codes"
+    },
+    {
+      "id": 35,
+      "name": "Mike Williams"
+    },
+    {
+      "id": 36,
+      "name": "Mykris"
+    },
+    {
+      "id": 37,
+      "name": "Mariana Bo"
     }
   ],
   "artistsToEvents": [
@@ -347,6 +599,195 @@
       "artistId": 16,
       "eventId": 1,
       "stageId": 2
+    },
+    {
+      "id": 17,
+      "start": "2018-03-25T22:00",
+      "end": null,
+      "day": 3,
+      "artistId": 17,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 18,
+      "start": "2018-03-25T20:15",
+      "end": null,
+      "day": 3,
+      "artistId": 18,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 19,
+      "start": "2018-03-25T19:10",
+      "end": null,
+      "day": 3,
+      "artistId": 19,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 20,
+      "start": "2018-03-25T18:05",
+      "end": null,
+      "day": 3,
+      "artistId": 20,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 21,
+      "start": "2018-03-25T17:00",
+      "end": null,
+      "day": 3,
+      "artistId": 21,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 22,
+      "start": "2018-03-25T15:55",
+      "end": null,
+      "day": 3,
+      "artistId": 22,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 23,
+      "start": "2018-03-25T14:50",
+      "end": null,
+      "day": 3,
+      "artistId": 23,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 24,
+      "start": "2018-03-25T13:45",
+      "end": null,
+      "day": 3,
+      "artistId": 24,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 25,
+      "start": "2018-03-25T12:45",
+      "end": null,
+      "day": 3,
+      "artistId": 25,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 26,
+      "start": "2018-03-25T12:00",
+      "end": null,
+      "day": 3,
+      "artistId": 26,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 27,
+      "start": "2018-03-24T23:00",
+      "end": null,
+      "day": 2,
+      "artistId": 27,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 28,
+      "start": "2018-03-24T21:50",
+      "end": null,
+      "day": 2,
+      "artistId": 28,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 29,
+      "start": "2018-03-24T20:45",
+      "end": null,
+      "day": 2,
+      "artistId": 29,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 30,
+      "start": "2018-03-24T19:10",
+      "end": null,
+      "day": 2,
+      "artistId": 30,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 31,
+      "start": "2018-03-24T18:05",
+      "end": null,
+      "day": 2,
+      "artistId": 31,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 32,
+      "start": "2018-03-24T17:00",
+      "end": null,
+      "day": 2,
+      "artistId": 32,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 33,
+      "start": "2018-03-24T15:55",
+      "end": null,
+      "day": 2,
+      "artistId": 33,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 34,
+      "start": "2018-03-24T14:50",
+      "end": null,
+      "day": 2,
+      "artistId": 34,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 35,
+      "start": "2018-03-24T13:45",
+      "end": null,
+      "day": 2,
+      "artistId": 35,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 36,
+      "start": "2018-03-24T12:45",
+      "end": null,
+      "day": 2,
+      "artistId": 36,
+      "eventId": 1,
+      "stageId": 1
+    },
+    {
+      "id": 37,
+      "start": "2018-03-24T12:00",
+      "end": null,
+      "day": 2,
+      "artistId": 37,
+      "eventId": 1,
+      "stageId": 1
     }
   ],
   "usersToEvents": [
@@ -357,24 +798,66 @@
       "attendance": "confirmed"
     },
     {
-      "id": 2,
       "userId": 1,
       "eventId": 2,
-      "attendance": "confirmed"
+      "attendance": "interested",
+      "id": 2
     }
   ],
   "usersToArtistEvents": [
     {
-      "id": 1,
       "userId": 1,
-      "artistsToEventId": 1,
-      "attendance": "confirmed"
+      "artistsToEventId": 9,
+      "attendance": "confirmed",
+      "id": 7
     },
     {
-      "id": 2,
-      "userId": 2,
+      "userId": 1,
+      "artistsToEventId": 2,
+      "attendance": "confirmed",
+      "id": 8
+    },
+    {
+      "userId": 1,
       "artistsToEventId": 1,
-      "attendance": "confirmed"
+      "attendance": "confirmed",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 3,
+      "attendance": "confirmed",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 10,
+      "attendance": "confirmed",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 19,
+      "attendance": "confirmed",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 18,
+      "attendance": "confirmed",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 17,
+      "attendance": "confirmed",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 27,
+      "attendance": "confirmed",
+      "id": 15
     }
   ]
 }
