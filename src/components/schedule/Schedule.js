@@ -22,18 +22,21 @@ export default ({ scheduleId, user }) => {
     const [location, setLocation] = useState('Location');
     const [festDays, setFestDays] = useState([]);
     const [userDays, setUserDays] = useState({});
+    const [showDelete, setDelete] = useState(false);
 
     const getUserSchedule = () => {
         getAll(`usersToArtistEvents/?userId=${user.id}&_expand=artistsToEvent`)
             .then(events => {
-                const userArtistsToEvents = events.map(({ id, artistsToEvent, attendance }) => {
-                    // userArtistsToEventId needed in the obj for removal of set from db
-                    // attendance needed to differentiate styling in the user's schedule
-                    return {userToArtistsEventId: id, attendance, ...artistsToEvent};
-                });
-                const userDaysObj = createDaysObj(userArtistsToEvents);
+                if (events.length) {
+                    const userArtistsToEvents = events.map(({ id, artistsToEvent, attendance }) => {
+                        // userArtistsToEventId needed in the obj for removal of set from db
+                        // attendance needed to differentiate styling in the user's schedule
+                        return {userToArtistsEventId: id, attendance, ...artistsToEvent};
+                    });
+                    const userDaysObj = createDaysObj(userArtistsToEvents);
 
-                setUserDays(userDaysObj);
+                    setUserDays(userDaysObj);
+                }
             });
     };
 
@@ -48,11 +51,12 @@ export default ({ scheduleId, user }) => {
                     setLocation(location);
                     setFestDays(daysArr);
             });
+
+            if (user) getUserSchedule();
         };
-        if (user) getUserSchedule();
     };
 
-    useEffect(getSchedules, [scheduleId, user]);
+    useEffect(getSchedules, [scheduleId]);
     // user info is left as an obj in order to access the currDay without looping again
     const festDaysArr = sortBy(festDays).map((lineup, i) => {
         const currDay = lineup[0];
