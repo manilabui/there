@@ -53,7 +53,7 @@ export default ({ scheduleId, user }) => {
     };
 
     useEffect(getSchedules, [scheduleId, user]);
-
+    // user info is left as an obj in order to access the currDay without looping again
     const festDaysArr = sortBy(festDays).map((lineup, i) => {
         const currDay = lineup[0];
         const userLineup = userDays[currDay] ? userDays[currDay] : null;

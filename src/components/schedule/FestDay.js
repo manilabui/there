@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import FestTime from './FestTime';
 import Moment from 'react-moment';
-import { sortBy } from 'lodash';
+import { sortBy, toPairs } from 'lodash';
 
 const createTimesObj = arr => {
     const result = {};
@@ -19,13 +19,14 @@ export default ({ festLineup, userLineup, user }) => {
 	const date = festLineup[0].start;
 	const sortedFestLineup = sortBy(festLineup, ({ start }) => new Date(start));
 	const sortedUserLineup = userLineup ? sortBy(userLineup, ({ start }) => new Date(start)) : null;
-	const festTimes = createTimesObj(sortedFestLineup);
+	const festTimes = sortBy(toPairs(createTimesObj(sortedFestLineup)));
 	const userTimes = userLineup ? createTimesObj(sortedUserLineup) : null;
 	const festTimesArr = sortBy(festTimes).map((lineup, i) => {
-		const currTime = lineup[0].start.slice(-5);
+		const currTime = lineup[1][0].start.slice(-5);
 		// empty arrays rather than null to match festSets, which will never be null
 		// also for pushing any changes user makes to their schedule
-		const userSets = userTimes 
+		// userTimes left as an obj so that we can access the info without an additional loop
+		const userSets = userTimes
 			? (userTimes[currTime] ? userTimes[currTime] : [])
 			: [];
         const userSetIds = userSets.length
@@ -33,7 +34,7 @@ export default ({ festLineup, userLineup, user }) => {
             : null;
         const festSets = userSets.length
         	? userSets.filter(({ id }) => userSetIds.includes(id))
-        	: lineup;
+        	: lineup[1];
 
 		return <FestTime key={i} festSets={festSets} userSets={userSets} user={user}/>
 	});
