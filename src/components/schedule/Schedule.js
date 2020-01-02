@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { sortBy, reverse, isEmpty } from 'lodash';
+import { sortBy, isEmpty, toPairs } from 'lodash';
 import { getAll, getItem } from '../../modules/apiManager';
 import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
 import FestDay from './FestDay';
@@ -13,14 +13,14 @@ const createDaysObj = arr => {
         // add set to the result obj by pushing to existing array or starting new one
         result[currDay] ? result[currDay].push(currSet) : result[currDay] = [currSet];
     });
-    
+
     return result;
 };
 
 export default ({ scheduleId, user }) => {
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
-    const [festDays, setFestDays] = useState({});
+    const [festDays, setFestDays] = useState([]);
     const [userDays, setUserDays] = useState({});
 
     const getUserSchedule = () => {
@@ -42,10 +42,11 @@ export default ({ scheduleId, user }) => {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
                     const daysObj = createDaysObj(artistsToEvents);
+                    const daysArr = sortBy(toPairs(daysObj));
 
                     setName(name);
                     setLocation(location);
-                    setFestDays(daysObj);
+                    setFestDays(daysArr);
             });
         };
         if (user) getUserSchedule();
@@ -53,11 +54,11 @@ export default ({ scheduleId, user }) => {
 
     useEffect(getSchedules, [scheduleId, user]);
 
-    const festDaysArr = reverse(sortBy(festDays)).map((lineup, i) => {
-        const currDay = lineup[0].day;
+    const festDaysArr = sortBy(festDays).map((lineup, i) => {
+        const currDay = lineup[0];
         const userLineup = userDays[currDay] ? userDays[currDay] : null;
 
-        return <FestDay key={i} festLineup={lineup} userLineup={userLineup} user={user}/>
+        return <FestDay key={i} festLineup={lineup[1]} userLineup={userLineup} user={user}/>
     });
 
     return (
