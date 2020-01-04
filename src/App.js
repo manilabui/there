@@ -51,7 +51,7 @@ export default () => {
         <section className='w-third'><Login updateUser={updateUser}/></section>
       </header>
       <div className='container-main flex'>
-        <section className='section-festList'>
+        <section className='section-festList ph3'>
           <FestList
             fests={newsFests}
             user={user}
@@ -60,11 +60,13 @@ export default () => {
             getAllFests={getAllFests}
           />
         </section>
-        <section className='section-schedule'>
+        <section className='section-schedule ph4'>
           <Schedule scheduleId={scheduleId} user={user}/>
         </section>
-        <section className='section-timeline'>
-          <Timeline fests={userFests} handleFestClick={handleFestClick}/>
+        <section className="section-timeline ph3 dt">
+          <div className="dtc v-mid">
+            <Timeline fests={userFests} handleFestClick={handleFestClick}/>
+          </div>
         </section>
       </div>
       <footer className='absolute bottom-0'>
@@ -73,3 +75,7 @@ export default () => {
     </div>
   );
 }
+
+// <section className='section-timeline ph3 w-100 dt'>
+//           
+//         </section>
