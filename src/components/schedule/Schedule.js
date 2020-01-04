@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { sortBy, isEmpty, toPairs } from 'lodash';
 import { getAll, getItem } from '../../modules/apiManager';
 import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
+import { ReactComponent as Boundary } from '../../assets/boundaryColumn.svg';
 import FestDay from './FestDay';
 import './Schedule.css';
 

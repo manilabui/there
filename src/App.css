@@ -17,29 +17,18 @@ body {
 }
 
 .section-festList, .section-timeline {
-  width: 32%;
+  width: 34%;
   height: 60vh;
 }
 
+.section-festList {
+  background: url(assets/boundaryColumn.svg) right no-repeat;
+}
+
+.section-timeline {
+  background: url(assets/boundaryColumn.svg) left no-repeat;
+}
+
 .section-schedule {
-  width: 36%;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  width: 32%;
 }
-
-/*.section-schedule:before, .section-schedule:after {
-    box-shadow: -15px 0 15px -15px inset;
-    content: " ";
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 15px;
-}
-
-.section-schedule:before {
-    left: -15px;
-}
-
-.section-schedule:after {
-    right: -15px;
-}*/

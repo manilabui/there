@@ -60,7 +60,7 @@ export default () => {
             getAllFests={getAllFests}
           />
         </section>
-        <section className='section-schedule ph4'>
+        <section className='section-schedule'>
           <Schedule scheduleId={scheduleId} user={user}/>
         </section>
         <section className="section-timeline ph3 dt">
@@ -75,7 +75,3 @@ export default () => {
     </div>
   );
 }
-
-// <section className='section-timeline ph3 w-100 dt'>
-//           
-//         </section>
