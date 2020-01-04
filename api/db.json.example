@@ -529,6 +529,30 @@
     {
       "id": 51,
       "name": "Fisher"
+    },
+    {
+      "id": 52,
+      "name": "Paz"
+    },
+    {
+      "id": 53,
+      "name": "Dirt Monkey"
+    },
+    {
+      "id": 54,
+      "name": "TBD"
+    },
+    {
+      "id": 55,
+      "name": "What So Not"
+    },
+    {
+      "id": 56,
+      "name": "Big Gigantic"
+    },
+    {
+      "id": 57,
+      "name": "Rüfüs Du Sol"
     }
   ],
   "artistsToEvents": [
@@ -903,8 +927,8 @@
     },
     {
       "id": 42,
-      "start": "2019-05-10T13:00",
-      "end": "2019-05-10T13:30",
+      "start": "2019-05-11T13:00",
+      "end": "2019-05-11T13:30",
       "day": 2,
       "artistId": 41,
       "eventId": 2,
@@ -912,8 +936,8 @@
     },
     {
       "id": 43,
-      "start": "2019-05-10T14:15",
-      "end": "2019-05-10T15:00",
+      "start": "2019-05-11T14:15",
+      "end": "2019-05-11T15:00",
       "day": 2,
       "artistId": 42,
       "eventId": 2,
@@ -921,8 +945,8 @@
     },
     {
       "id": 44,
-      "start": "2019-05-10T15:30",
-      "end": "2019-05-10T16:30",
+      "start": "2019-05-11T15:30",
+      "end": "2019-05-11T16:30",
       "day": 2,
       "artistId": 43,
       "eventId": 2,
@@ -930,8 +954,8 @@
     },
     {
       "id": 45,
-      "start": "2019-05-10T17:00",
-      "end": "2019-05-10T18:00",
+      "start": "2019-05-11T17:00",
+      "end": "2019-05-11T18:00",
       "day": 2,
       "artistId": 44,
       "eventId": 2,
@@ -939,8 +963,8 @@
     },
     {
       "id": 46,
-      "start": "2019-05-10T19:00",
-      "end": "2019-05-10T20:00",
+      "start": "2019-05-11T19:00",
+      "end": "2019-05-11T20:00",
       "day": 2,
       "artistId": 45,
       "eventId": 2,
@@ -948,10 +972,109 @@
     },
     {
       "id": 47,
-      "start": "2019-05-10T21:00",
-      "end": "2019-05-10T22:30",
+      "start": "2019-05-11T21:00",
+      "end": "2019-05-11T22:30",
       "day": 2,
       "artistId": 46,
+      "eventId": 2,
+      "stageId": 9
+    },
+    {
+      "id": 48,
+      "start": "2019-05-11T13:30",
+      "end": "2019-05-11T14:15",
+      "day": 2,
+      "artistId": 47,
+      "eventId": 2,
+      "stageId": 10
+    },
+    {
+      "id": 49,
+      "start": "2019-05-11T15:00",
+      "end": "2019-05-11T15:45",
+      "day": 2,
+      "artistId": 48,
+      "eventId": 2,
+      "stageId": 10
+    },
+    {
+      "id": 50,
+      "start": "2019-05-11T16:15",
+      "end": "2019-05-11T17:15",
+      "day": 2,
+      "artistId": 49,
+      "eventId": 2,
+      "stageId": 10
+    },
+    {
+      "id": 51,
+      "start": "2019-05-11T18:00",
+      "end": "2019-05-11T19:00",
+      "day": 2,
+      "artistId": 50,
+      "eventId": 2,
+      "stageId": 10
+    },
+    {
+      "id": 52,
+      "start": "2019-05-11T20:00",
+      "end": "2019-05-11T21:00",
+      "day": 2,
+      "artistId": 51,
+      "eventId": 2,
+      "stageId": 10
+    },
+    {
+      "id": 53,
+      "start": "2019-05-10T13:00",
+      "end": "2019-05-10T13:30",
+      "day": 1,
+      "artistId": 52,
+      "eventId": 2,
+      "stageId": 9
+    },
+    {
+      "id": 54,
+      "start": "2019-05-10T13:45",
+      "end": "2019-05-10T14:30",
+      "day": 1,
+      "artistId": 53,
+      "eventId": 2,
+      "stageId": 9
+    },
+    {
+      "id": 55,
+      "start": "2019-05-10T15:15",
+      "end": "2019-05-10T16:15",
+      "day": 1,
+      "artistId": 54,
+      "eventId": 2,
+      "stageId": 9
+    },
+    {
+      "id": 56,
+      "start": "2019-05-10T17:00",
+      "end": "2019-05-10T18:00",
+      "day": 1,
+      "artistId": 55,
+      "eventId": 2,
+      "stageId": 9
+    },
+    {
+      "id": 57,
+      "start": "2019-05-10T19:00",
+      "end": "2019-05-10T20:00",
+      "day": 1,
+      "artistId": 56,
+      "eventId": 2,
+      "stageId": 9
+    },
+    {
+      "id": 58,
+      "start": "2019-05-10T21:00",
+      "end": "2019-05-10T22:30",
+      "day": 1,
+      "artistId": 57,
       "eventId": 2,
       "stageId": 9
     }
@@ -982,12 +1105,6 @@
       "artistsToEventId": 1,
       "attendance": "confirmed",
       "id": 9
-    },
-    {
-      "userId": 1,
-      "artistsToEventId": 3,
-      "attendance": "confirmed",
-      "id": 10
     },
     {
       "userId": 1,
@@ -1027,12 +1144,6 @@
     },
     {
       "userId": 1,
-      "artistsToEventId": 5,
-      "attendance": "interested",
-      "id": 30
-    },
-    {
-      "userId": 1,
       "artistsToEventId": 4,
       "attendance": "confirmed",
       "id": 31
@@ -1042,6 +1153,48 @@
       "artistsToEventId": 27,
       "attendance": "confirmed",
       "id": 32
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 3,
+      "attendance": "interested",
+      "id": 34
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 5,
+      "attendance": "confirmed",
+      "id": 36
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 47,
+      "attendance": "interested",
+      "id": 37
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 58,
+      "attendance": "confirmed",
+      "id": 38
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 57,
+      "attendance": "confirmed",
+      "id": 39
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 50,
+      "attendance": "confirmed",
+      "id": 40
+    },
+    {
+      "userId": 1,
+      "artistsToEventId": 45,
+      "attendance": "confirmed",
+      "id": 41
     }
   ]
 }

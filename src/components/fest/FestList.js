@@ -28,6 +28,7 @@ export default props => {
                 ref={searchInput}
                 onChange={getSearchResults}
                 autocomplete='off'
+                autofocus='on'
                 placeholder=''
             />
             {festNews}

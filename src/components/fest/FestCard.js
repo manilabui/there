@@ -2,8 +2,8 @@ import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import Moment from 'react-moment';
 import { postItem } from '../../modules/apiManager';
-import { ReactComponent as Check } from '../../assets/checkIcon.svg';
-import { ReactComponent as Star } from '../../assets/starIcon.svg';
+import { ReactComponent as Check } from '../../assets/largeCheckIcon.svg';
+import { ReactComponent as Star } from '../../assets/largeStarIcon.svg';
 
 
 export default ({ id, start, name, location, updateType, getAllFests, handleFestClick, isNewsList, user }) => {
