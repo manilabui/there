@@ -35,6 +35,7 @@ export default ({ scheduleId, user }) => {
                     });
                     const userDaysObj = createDaysObj(userArtistsToEvents);
 
+                    setUserDays({});
                     setUserDays(userDaysObj);
                 }
             });
@@ -44,9 +45,11 @@ export default ({ scheduleId, user }) => {
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
+                    console.log(artistsToEvents)
                     const daysObj = createDaysObj(artistsToEvents);
                     const daysArr = sortBy(toPairs(daysObj));
 
+                    setFestDays([]);
                     setName(name);
                     setLocation(location);
                     setFestDays(daysArr);
