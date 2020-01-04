@@ -1,4 +1,5 @@
 import React, { Fragment, useRef } from 'react';
+import { ReactComponent as Search } from '../../assets/searchIcon.svg';
 import FestCard from './FestCard';
 import { toLower } from 'lodash';
 import './FestList.css';
@@ -21,12 +22,13 @@ export default props => {
     return (
         <Fragment>
             <input
-                className="search"
+                className="search f7 br-pill pv1 mb3"
                 type="text"
                 id="search"
                 ref={searchInput}
                 onChange={getSearchResults}
-                placeholder=""
+                autocomplete='off'
+                placeholder=''
             />
             {festNews}
         </Fragment>

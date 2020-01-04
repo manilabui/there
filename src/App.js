@@ -39,7 +39,7 @@ export default () => {
 
   useEffect(getAllFests, [user, scheduleId]);
   
-  const updateUser = user => setUser(user);
+  const updateUser = user => {setUser(null); setUser(user)};
   const handleFestClick = id => setScheduleId(id);
   const updateFestList = arr => setNewsFests(arr);
 
@@ -51,7 +51,7 @@ export default () => {
         <section className='w-third'><Login updateUser={updateUser}/></section>
       </header>
       <div className='container-main flex'>
-        <section className='section-festList'>
+        <section className='section-festList ph3'>
           <FestList
             fests={newsFests}
             user={user}
@@ -63,8 +63,10 @@ export default () => {
         <section className='section-schedule'>
           <Schedule scheduleId={scheduleId} user={user}/>
         </section>
-        <section className='section-timeline'>
-          <Timeline fests={userFests} handleFestClick={handleFestClick}/>
+        <section className="section-timeline ph3 dt">
+          <div className="dtc v-mid">
+            <Timeline fests={userFests} handleFestClick={handleFestClick}/>
+          </div>
         </section>
       </div>
       <footer className='absolute bottom-0'>

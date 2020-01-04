@@ -1,4 +1,9 @@
 .search {
-	background-color: #8C6542;
 	color: white;
+	background: url(../../assets/searchIcon.svg) no-repeat 6px, #8C6542;
+	padding-left: 20px;
+	outline: none;
+	border: 0;
+	box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.25);
+	width: 150px;
 }
