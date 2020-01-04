@@ -70,7 +70,7 @@ export default () => {
         </section>
       </div>
       <footer className='absolute bottom-0'>
-        <p className='f7 black-70 mb2'>Made by Manbootay | 2020</p>
+        <p className='f7 cream mb2'>Made with anguish by Manbootay | 2020</p>
       </footer>
     </div>
   );

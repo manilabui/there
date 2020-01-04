@@ -32,3 +32,17 @@ body {
 .section-schedule {
   width: 32%;
 }
+
+.cream {
+  color: #FFF2CB;
+}
+
+.card-date {
+  color: #F2C94C;
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.card-location {
+  color: #F2C94C;
+}
