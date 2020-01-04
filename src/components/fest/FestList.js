@@ -22,7 +22,7 @@ export default props => {
     return (
         <Fragment>
             <input
-                className="search"
+                className="search f7 br-pill pv1 mb3"
                 type="text"
                 id="search"
                 ref={searchInput}
@@ -30,7 +30,6 @@ export default props => {
                 autocomplete='off'
                 placeholder=''
             />
-            
             {festNews}
         </Fragment>
     );
