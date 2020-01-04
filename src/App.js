@@ -39,7 +39,7 @@ export default () => {
 
   useEffect(getAllFests, [user, scheduleId]);
   
-  const updateUser = user => setUser(user);
+  const updateUser = user => {setUser(null); setUser(user)};
   const handleFestClick = id => setScheduleId(id);
   const updateFestList = arr => setNewsFests(arr);
 

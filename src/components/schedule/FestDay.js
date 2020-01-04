@@ -15,7 +15,7 @@ const createTimesObj = arr => {
     return result;
 };
 
-export default ({ festLineup, userLineup, user }) => {
+export default ({ festLineup, userLineup, user, day, totalDays, changeDay }) => {
 	const date = festLineup[0].start;
 	const sortedFestLineup = sortBy(festLineup, ({ start }) => new Date(start));
 	const sortedUserLineup = userLineup ? sortBy(userLineup, ({ start }) => new Date(start)) : null;
@@ -39,9 +39,22 @@ export default ({ festLineup, userLineup, user }) => {
 		return <FestTime key={i} festSets={festSets} userSets={userSets} user={user}/>
 	});
 
+	const changeDayButton = isPrev => {
+		const leftArrow = `<`;
+
+		return 
+			<div className='dib dim pointer' onClick={() => changeDay(isPrev)}>
+				{isPrev ? leftArrow : '>'}
+			</div>;
+	};
+
 	return (
 		<Fragment>
-			<article className='tc'><Moment format='dddd, LL' date={date} /></article>
+			<article className='tc'>
+				{day > 1 ? changeDayButton(true) : null}
+				<Moment format='dddd, LL' date={date} />
+				{day < totalDays ? changeDayButton(false) : null}
+			</article>
 			{festTimesArr}
 		</Fragment>
 	);

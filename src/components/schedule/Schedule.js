@@ -20,7 +20,8 @@ const createDaysObj = arr => {
 export default ({ scheduleId, user }) => {
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
-    const [festDays, setFestDays] = useState([]);
+    const [day, setDay] = useState(0);
+    const [festDays, setFestDays] = useState({});
     const [userDays, setUserDays] = useState({});
     const [showDelete, setDelete] = useState(false);
 
@@ -35,7 +36,6 @@ export default ({ scheduleId, user }) => {
                     });
                     const userDaysObj = createDaysObj(userArtistsToEvents);
 
-                    setUserDays({});
                     setUserDays(userDaysObj);
                 }
             });
@@ -45,14 +45,13 @@ export default ({ scheduleId, user }) => {
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
                 .then(({ name, location, artistsToEvents }) => {
-                    console.log(artistsToEvents)
                     const daysObj = createDaysObj(artistsToEvents);
-                    const daysArr = sortBy(toPairs(daysObj));
 
                     setFestDays([]);
                     setName(name);
                     setLocation(location);
-                    setFestDays(daysArr);
+                    setDay(1);
+                    setFestDays(daysObj);
             });
 
             if (user) getUserSchedule();
@@ -61,12 +60,34 @@ export default ({ scheduleId, user }) => {
 
     useEffect(getSchedules, [scheduleId]);
     // user info is left as an obj in order to access the currDay without looping again
-    const festDaysArr = sortBy(festDays).map((lineup, i) => {
-        const currDay = lineup[0];
-        const userLineup = userDays[currDay] ? userDays[currDay] : null;
+    // const festDaysArr = sortBy(festDays).map((lineup, i) => {
+    //     const currDay = lineup[0];
+    //     const userLineup = userDays[currDay] ? userDays[currDay] : null;
 
-        return <FestDay key={i} festLineup={lineup[1]} userLineup={userLineup} user={user}/>
-    });
+    //     return <FestDay key={i} festLineup={lineup[1]} userLineup={userLineup} user={user}/>
+    // });
+
+    const changeDay = isPrev => {
+        isPrev(
+            //set the day
+        )
+    };
+
+    const currDay = () => {
+        return (
+            <Fragment>
+                <FestDay
+                    className='dib'
+                    festLineup={festDays[day]} 
+                    userLineup={userDays[day] ? userDays[day] : null} 
+                    day={day}
+                    totalDays={Object.keys(festDays).length}
+                    changeDay={changeDay}
+                    user={user}
+                />
+            </Fragment>
+        );
+    };
 
     return (
         <Fragment>
@@ -76,7 +97,9 @@ export default ({ scheduleId, user }) => {
                 <h5 className='w-60 tc'>{location}</h5>
                 <h4 className='w-20 tr underline'>Your Schedule</h4>
             </header>
-            <section className='schedule overflow-scroll'>{festDaysArr}</section>
+            <section className='schedule overflow-scroll'>
+                {festDays[day] ? currDay() : null}
+            </section>
         </Fragment>
     );
 };
