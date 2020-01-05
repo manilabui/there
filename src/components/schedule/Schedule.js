@@ -35,7 +35,6 @@ export default ({ scheduleId, user }) => {
                     });
                     const userDaysObj = createDaysObj(userArtistsToEvents);
 
-                    setUserDays({});
                     setUserDays(userDaysObj);
                 }
             });

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import FestCard from '../fest/FestCard';
 
 export default props => {
 	const { isAuthenticated } = useAuth();
-
+    console.log(props.fests)
     const festCardArr = props.fests.map(({ event }) => {
     	return <FestCard key={event.id} isNewsList={false} {...event} {...props} />
     });

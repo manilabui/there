@@ -36,7 +36,7 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 					handleUserToArtistEventUpdate(set, 'post');
 				});
 		} else {
-			window.alert('Sign in to add create your own fest schedule.');
+			window.alert('Sign in to add sets to your fest schedule.');
 		};
 	};
 
