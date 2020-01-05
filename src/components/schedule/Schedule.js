@@ -45,14 +45,15 @@ export default ({ scheduleId, user }) => {
     const getSchedules = () => {
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
-                .then(event => {
-                    const { name, location, artistsToEvents } = event;
+                .then(({ name, eventUrl, location, locationUrl, artistsToEvents }) => {
                     const daysObj = createDaysObj(artistsToEvents);
                     const daysArr = sortBy(toPairs(daysObj));
 
                     setFestDays([]);
                     setName(name);
+                    setFestUrl(eventUrl);
                     setLocation(location);
+                    setLocationUrl(locationUrl);
                     setFestDays(daysArr);
             });
 
@@ -72,7 +73,7 @@ export default ({ scheduleId, user }) => {
     const festNameEl = festUrl 
         ? 
             <a 
-                className='header-fest pt2 fw7 tc ttu tracked'
+                className='header-fest no-underline underline-hover db pt2 fw7 tc ttu tracked'
                 target="_blank"
                 rel="noopener noreferrer"
                 href={festUrl}>
@@ -83,7 +84,7 @@ export default ({ scheduleId, user }) => {
     const locationEl = locationUrl
         ? 
             <a 
-                className='card-location w-60 tc i fw5'
+                className='card-location no-underline underline-hover w-60 tc i fw5'
                 target="_blank"
                 rel="noopener noreferrer"
                 href={locationUrl}>
@@ -96,10 +97,9 @@ export default ({ scheduleId, user }) => {
             {festNameEl}
             <header className='flex pt3'>
             	<h4 className='header-schedule w-20 tl ttu underline tracked'>Fest Schedule</h4>
-                <h5 className='card-location w-60 tc i fw5'>{location}</h5>
+                {locationEl}
                 <h4 className='header-schedule w-20 tr ttu underline tracked'>Your Schedule</h4>
             </header>
-            {locationEl}
             <section className='schedule overflow-scroll'>{festDaysArr}</section>
         </Fragment>
     );
