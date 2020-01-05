@@ -53,7 +53,7 @@ export default ({ updateUser }) => {
 					className="f6 fw5 bg-white pink dim pointer pa2 pv1 mt2 fr br2"
 					type="submit"
 					onClick={handleLogin}>
-						Submit
+						<a href='.'>Submit</a>
 				</button>
 			</form>
 		);

@@ -20,6 +20,8 @@ const createDaysObj = arr => {
 export default ({ scheduleId, user }) => {
     const [name, setName] = useState('Festival Name');
     const [location, setLocation] = useState('Location');
+    const [festUrl, setFestUrl] = useState(null);
+    const [locationUrl, setLocationUrl] = useState(null);
     const [festDays, setFestDays] = useState([]);
     const [userDays, setUserDays] = useState({});
     const [showDelete, setDelete] = useState(false);
@@ -43,7 +45,8 @@ export default ({ scheduleId, user }) => {
     const getSchedules = () => {
         if (scheduleId) {
             getItem('events', `${scheduleId}?_embed=artistsToEvents`)
-                .then(({ name, location, artistsToEvents }) => {
+                .then(event => {
+                    const { name, location, artistsToEvents } = event;
                     const daysObj = createDaysObj(artistsToEvents);
                     const daysArr = sortBy(toPairs(daysObj));
 
@@ -66,14 +69,37 @@ export default ({ scheduleId, user }) => {
         return <FestDay key={i} festLineup={lineup[1]} userLineup={userLineup} user={user}/>
     });
 
+    const festNameEl = festUrl 
+        ? 
+            <a 
+                className='header-fest pt2 fw7 tc ttu tracked'
+                target="_blank"
+                rel="noopener noreferrer"
+                href={festUrl}>
+                {name}
+            </a>
+        : <h2 className='header-fest pt2 fw7 tc ttu tracked'>{name}</h2>;
+
+    const locationEl = locationUrl
+        ? 
+            <a 
+                className='card-location w-60 tc i fw5'
+                target="_blank"
+                rel="noopener noreferrer"
+                href={locationUrl}>
+                {location}
+            </a>
+        : <h5 className='card-location w-60 tc i fw5'>{location}</h5>;
+
     return (
         <Fragment>
-            <h2 className='header-fest pt2 fw7 tc ttu tracked'>{name}</h2>
+            {festNameEl}
             <header className='flex pt3'>
             	<h4 className='header-schedule w-20 tl ttu underline tracked'>Fest Schedule</h4>
                 <h5 className='card-location w-60 tc i fw5'>{location}</h5>
                 <h4 className='header-schedule w-20 tr ttu underline tracked'>Your Schedule</h4>
             </header>
+            {locationEl}
             <section className='schedule overflow-scroll'>{festDaysArr}</section>
         </Fragment>
     );
