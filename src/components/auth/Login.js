@@ -64,13 +64,18 @@ export default ({ updateUser }) => {
 			{isAuthenticated()
 				? (
 					<Fragment>
-						<h5 className='dib pr1'>{getUserInfo().firstName} is THERE</h5>
-						<h4 className='dib dim pointer' onClick={handleLogout}>| Sign Out</h4>
+						<h5 className='dib cream i fw5 pr1'>{getUserInfo().firstName} is THERE</h5>
+						<h4 className='dib dim pointer cream' onClick={handleLogout}>
+							<span className='fw1 f4 ph2'>|</span>
+							<span className='fw6 f6 pr1'>Sign out</span>
+						</h4>
 					</Fragment>
 				)
 				: (
 					<Fragment>
-						<h4 className='fr dim pointer' onClick={handleLoginDisplay}>Sign In</h4>
+						<h4 className='fr dim pointer cream fw6 f6 pr1' onClick={handleLoginDisplay}>
+							Sign In
+						</h4>
 						{showLogin ? form('login') : null}
 					</Fragment>
 				)

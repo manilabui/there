@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { sortBy, isEmpty, toPairs } from 'lodash';
 import { getAll, getItem } from '../../modules/apiManager';
 import { ReactComponent as DeleteIcon } from '../../assets/deleteIcon.svg';
-import { ReactComponent as Boundary } from '../../assets/boundaryColumn.svg';
 import FestDay from './FestDay';
 import './Schedule.css';
 
@@ -70,11 +69,11 @@ export default ({ scheduleId, user }) => {
 
     return (
         <Fragment>
-            <h2 className='tc'>{name}</h2>
-            <header className='flex'>
-            	<h4 className='w-20 tl underline'>Fest Schedule</h4>
-                <h5 className='w-60 tc'>{location}</h5>
-                <h4 className='w-20 tr underline'>Your Schedule</h4>
+            <h2 className='header-fest pt2 fw7 tc ttu tracked'>{name}</h2>
+            <header className='flex pt3'>
+            	<h4 className='header-schedule w-20 tl ttu underline tracked'>Fest Schedule</h4>
+                <h5 className='card-location w-60 tc i fw5'>{location}</h5>
+                <h4 className='header-schedule w-20 tr ttu underline tracked'>Your Schedule</h4>
             </header>
             <section className='schedule overflow-scroll'>{festDaysArr}</section>
         </Fragment>

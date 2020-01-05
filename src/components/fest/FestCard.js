@@ -29,7 +29,7 @@ export default ({ id, start, name, location, updateType, getAllFests, handleFest
 	const addToTimelineButtons =
 		<div className='festList-icons dib'>
 			<Check className='dib pointer dim' onClick={() => addToTimeline('confirmed')}/>
-			<Star className='dib pointer dim' onClick={() => addToTimeline('interested')}/>
+			<Star className='dib pointer dim ph1' onClick={() => addToTimeline('interested')}/>
 		</div>;
 
 	return (
@@ -37,7 +37,7 @@ export default ({ id, start, name, location, updateType, getAllFests, handleFest
 			{isNewsList ? addToTimelineButtons : null}
 			<Moment className='card-date dib ph1 fw6 ttu tracked' format='MM.DD.YY' date={start}/>
 			<div className='dib pointer dim' onClick={() => handleFestClick(id)}>
-				<h6 className='dib cream f7 fw7 ttu tracked'>{name}</h6>
+				<h6 className='dib cream f7 pl1 fw7 ttu tracked'>{name}</h6>
 				<h6 className='card-location dib ph1 i fw5'>{location}</h6>
 				<h6 className='dib cream f6 fw5 ttu tracked'>{updateType}</h6>
 			</div>

@@ -8,6 +8,11 @@ body {
   padding: .5rem;
 }
 
+hr {
+  border: .5px solid #FFF2CB;
+  opacity: .5;
+}
+
 .container-main {
   height: 65vh;
 }
@@ -18,7 +23,7 @@ body {
 
 .section-festList, .section-timeline {
   width: 34%;
-  height: 60vh;
+  height: 65vh;
 }
 
 .section-festList {
@@ -31,6 +36,8 @@ body {
 
 .section-schedule {
   width: 32%;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .cream {
@@ -45,4 +52,5 @@ body {
 
 .card-location {
   color: #F2C94C;
+  font-size: 11.5px;
 }
