@@ -12,7 +12,13 @@ export default props => {
     return (
         <Fragment>
             {/* <h5 className='fr pointer dim underline'>+ Create New Fest</h5> */}
-            {isAuthenticated() ? <div>{festCardArr}</div> : null}
+            {isAuthenticated() 
+                ? 
+                    <div className='subsection-timeline dt'>
+                        <div className='dtc v-mid'>{festCardArr}</div>
+                    </div>
+                : null
+            }
         </Fragment>
     );
 };

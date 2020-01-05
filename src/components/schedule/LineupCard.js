@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
@@ -69,8 +69,8 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 	const userSideButtons =
 		<div className='icon-lineup dtc w-10'>
 			{set.attendance === 'interested'
-				? <Check className='pointer dim' onClick={() => editUserScheduleItem('confirmed')}/>
-				: <Star className='pointer dim' onClick={() => editUserScheduleItem('interested')}/>
+				? <Check className='pointer dim pl2' onClick={() => editUserScheduleItem('confirmed')}/>
+				: <Star className='pointer dim pl2' onClick={() => editUserScheduleItem('interested')}/>
 			}
 			<CloseIcon className='icon-bottom pointer dim' onClick={removeFromUserSchedule}/>
 		</div>;
