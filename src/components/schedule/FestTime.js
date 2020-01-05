@@ -57,7 +57,7 @@ export default ({ festSets, userSets, user }) => {
 			<section className='flex column pv2'>
 				<article className='lineup tl'>{festSetsArr}</article>
 				<article className='time fw6 pv2 tc'><Moment format='h:mm A' date={date} /></article>
-				{user ? <article className='lineup tr'>{userSetsArr}</article> : ''}
+				<article className='lineup tr'>{userSetsArr}</article>
 			</section>
 			<hr className='cream' />
 		</Fragment>
