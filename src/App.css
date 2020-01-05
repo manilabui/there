@@ -8,6 +8,11 @@ body {
   padding: .5rem;
 }
 
+hr {
+  border: .5px solid #FFF2CB;
+  opacity: .5;
+}
+
 .container-main {
   height: 65vh;
 }
@@ -18,17 +23,40 @@ body {
 
 .section-festList, .section-timeline {
   width: 34%;
-  height: 60vh;
+  height: 65vh;
 }
 
 .section-festList {
   background: url(assets/boundaryColumn.svg) right no-repeat;
+  padding-right: 30px;
 }
 
 .section-timeline {
   background: url(assets/boundaryColumn.svg) left no-repeat;
 }
 
+.subsection-timeline {
+  background: url(assets/line.svg) 68px no-repeat;
+  height: 55vh;
+}
+
 .section-schedule {
   width: 32%;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.cream {
+  color: #FFF2CB;
+}
+
+.card-date {
+  color: #F2C94C;
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.card-location {
+  color: #F2C94C;
+  font-size: 11.5px;
 }

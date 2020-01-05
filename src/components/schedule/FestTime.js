@@ -54,12 +54,12 @@ export default ({ festSets, userSets, user }) => {
 
 	return (
 		<Fragment>
-			<section className='flex column'>
-				<article className='w-40 tl'>{festSetsArr}</article>
-				<article className='w-20 tc'><Moment format='h:mm A' date={date} /></article>
-				{user ? <article className='w-40 tr'>{userSetsArr}</article> : ''}
+			<section className='flex column pv2'>
+				<article className='lineup tl'>{festSetsArr}</article>
+				<article className='time fw6 pv2 tc'><Moment format='h:mm A' date={date} /></article>
+				{user ? <article className='lineup tr'>{userSetsArr}</article> : ''}
 			</section>
-			<hr/>
+			<hr className='cream' />
 		</Fragment>
 	);
 };

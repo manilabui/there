@@ -41,7 +41,7 @@ export default ({ festLineup, userLineup, user }) => {
 
 	return (
 		<Fragment>
-			<article className='tc'><Moment format='dddd, LL' date={date} /></article>
+			<article className='card-location f7 fw5 tc pt4 pb3'><Moment format='dddd, LL' date={date} /></article>
 			{festTimesArr}
 		</Fragment>
 	);

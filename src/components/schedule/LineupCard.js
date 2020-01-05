@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { ReactComponent as Check } from '../../assets/checkIcon.svg';
 import { ReactComponent as Star } from '../../assets/starIcon.svg';
@@ -61,26 +61,26 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 	};
 
 	const festSideButtons =
-		<Fragment>
-			<Check className='dib pointer dim' onClick={() => addToUserSchedule('confirmed')}/>
-			<Star className='dib pointer dim' onClick={() => addToUserSchedule('interested')}/>
-		</Fragment>;
+		<div className='icon-lineup dtc w-10'>
+			<Check className='pointer dim' onClick={() => addToUserSchedule('confirmed')}/>
+			<Star className='icon-bottom pointer dim' onClick={() => addToUserSchedule('interested')}/>
+		</div>;
 
 	const userSideButtons =
-		<Fragment>
+		<div className='icon-lineup dtc w-10'>
 			{set.attendance === 'interested'
-				? <Check className='dib pointer dim' onClick={() => editUserScheduleItem('confirmed')}/>
-				: <Star className='dib pointer dim' onClick={() => editUserScheduleItem('interested')}/>
+				? <Check className='pointer dim pl2' onClick={() => editUserScheduleItem('confirmed')}/>
+				: <Star className='pointer dim pl2' onClick={() => editUserScheduleItem('interested')}/>
 			}
-			<CloseIcon className='dib pointer dim' onClick={removeFromUserSchedule}/>
-		</Fragment>;
+			<CloseIcon className='icon-bottom pointer dim' onClick={removeFromUserSchedule}/>
+		</div>;
 
 	return (
-		<article>
+		<article className='dt pt1'>
 			{isPublic ? festSideButtons : null}
-			<div className='dib'>
-				<h6 className='dib'>{artist}</h6>
-				<h6 className='dib'>{stage}</h6>
+			<div className='dtc dib pl1 pb2'>
+				<h6 className='artist fw6 pb1'>{artist}</h6>
+				<h6 className='cream fw4 i ttu'>{stage}</h6>
 			</div>
 			{!isPublic ? userSideButtons : null}
 		</article>

@@ -2,9 +2,9 @@ import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import Moment from 'react-moment';
 import { postItem } from '../../modules/apiManager';
-import { ReactComponent as Check } from '../../assets/checkIcon.svg';
-import { ReactComponent as Star } from '../../assets/starIcon.svg';
-
+import { ReactComponent as Check } from '../../assets/largeCheckIcon.svg';
+import { ReactComponent as Star } from '../../assets/largeStarIcon.svg';
+import { ReactComponent as Confirmed } from '../../assets/confirmedMarker.svg';
 
 export default ({ id, start, name, location, updateType, getAllFests, handleFestClick, isNewsList, user }) => {
 	const { isAuthenticated } = useAuth();
@@ -26,20 +26,21 @@ export default ({ id, start, name, location, updateType, getAllFests, handleFest
 		};
 	};
 
-	const addToTimelineButtons = 
-		<div className='dib'>
+	const addToTimelineButtons =
+		<div className='icons dib'>
 			<Check className='dib pointer dim' onClick={() => addToTimeline('confirmed')}/>
-			<Star className='dib pointer dim' onClick={() => addToTimeline('interested')}/>
+			<Star className='dib pointer dim ph1' onClick={() => addToTimeline('interested')}/>
 		</div>;
 
 	return (
-		<article>
+		<article className={!isNewsList ? 'pv2' : null}>
 			{isNewsList ? addToTimelineButtons : null}
-			<Moment className='dib' format='MM.DD.YY' date={start}/>
+			<Moment className='card-date dib ph1 fw6 ttu tracked' format='MM.DD.YY' date={start}/>
+			{!isNewsList ? <Confirmed className='icons ph1' /> : null}
 			<div className='dib pointer dim' onClick={() => handleFestClick(id)}>
-				<h6 className='dib'>{name}</h6>
-				<h6 className='dib'>{location}</h6>
-				<h6 className='dib'>{updateType}</h6>
+				<h6 className='dib cream f7 pl1 fw7 ttu tracked'>{name}</h6>
+				<h6 className='card-location dib ph1 i fw5'>{location}</h6>
+				<h6 className='dib cream f6 fw5 ttu tracked'>{updateType}</h6>
 			</div>
 		</article>
 	);
