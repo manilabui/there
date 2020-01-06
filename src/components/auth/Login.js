@@ -50,7 +50,7 @@ export default ({ updateUser }) => {
                     placeholder=""
 				/>
 				<button
-					className="f6 fw5 bg-white pink dim pointer pa2 pv1 mt2 fr br2"
+					className="f6 fw5 bg-white dim pointer pa2 pv1 mt2 fr br2"
 					type="submit"
 					onClick={handleLogin}>
 						Submit
@@ -67,7 +67,7 @@ export default ({ updateUser }) => {
 						<h5 className='dib cream i fw5 pr1'>{getUserInfo().firstName} is THERE</h5>
 						<h4 className='dib cream' onClick={handleLogout}>
 							<span className='fw1 f4 ph2'>|</span>
-							<span className='fw6 f6 pr1 dim pointer'>Sign out</span>
+							<a className='cream fw6 f6 pr1 dim pointer no-underline' href='.'>Sign out</a>
 						</h4>
 					</Fragment>
 				)
@@ -89,5 +89,3 @@ export default ({ updateUser }) => {
 		</section>
 	);
 };
-
-//mt0 ph3 fr
