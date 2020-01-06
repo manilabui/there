@@ -26,10 +26,9 @@ export default () => {
               const currUserFests = events.filter(({ userId }) => user.id === userId);
               const currUserFestIds = currUserFests.map(({ eventId }) => eventId);
               const filteredFests = fests.filter(({ id }) => !currUserFestIds.includes(id));
-              const sortedUserFests = sortDescending(currUserFests, 'start');
 
               setNewsFests(sortDescending(filteredFests, 'modifiedAt'));
-              setUserFests(sortedUserFests);
+              setUserFests(sortDescending(currUserFests, [o => o.event.start]));
             });   
         }
 
