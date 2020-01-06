@@ -36,7 +36,7 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 					handleUserToArtistEventUpdate(set, 'post');
 				});
 		} else {
-			window.alert('Sign in to add create your own fest schedule.');
+			window.alert('Sign in to add sets to your fest schedule.');
 		};
 	};
 
@@ -75,11 +75,14 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 			<CloseIcon className='icon-bottom pointer dim' onClick={removeFromUserSchedule}/>
 		</div>;
 
+	const artistStyling = !isPublic && set.attendance === 'interested' 
+		? 'artist i fw5 pb1' : 'artist fw6 pb1';
+
 	return (
 		<article className='dt pt1'>
 			{isPublic ? festSideButtons : null}
 			<div className='dtc dib pl1 pb2'>
-				<h6 className='artist fw6 pb1'>{artist}</h6>
+				<h6 className={artistStyling}>{artist}</h6>
 				<h6 className='cream fw4 i ttu'>{stage}</h6>
 			</div>
 			{!isPublic ? userSideButtons : null}
