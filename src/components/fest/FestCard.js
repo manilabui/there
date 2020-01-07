@@ -32,16 +32,22 @@ export default ({ id, start, name, location, updateType, getAllFests, handleFest
 			<Star className='dib pointer dim ph1' onClick={() => addToTimeline('interested')}/>
 		</div>;
 
+	const locationElStyle = isNewsList 
+		? 'card-location-list i fw5 pb1' : 'card-location-timeline i fw5';
+
 	return (
 		<article className={!isNewsList ? 'pv2' : null}>
-			{isNewsList ? addToTimelineButtons : null}
-			<Moment className='card-date dib ph1 fw6 ttu tracked' format='MM.DD.YY' date={start}/>
-			{!isNewsList ? <Confirmed className='icons ph1' /> : null}
-			<div className='dib pointer dim' onClick={() => handleFestClick(id)}>
-				<h6 className='dib cream f7 pl1 fw7 ttu tracked'>{name}</h6>
-				<h6 className='card-location dib ph1 i fw5'>{location}</h6>
-				<h6 className='dib cream f6 fw5 ttu tracked'>{updateType}</h6>
+			<div>
+				{isNewsList ? addToTimelineButtons : null}
+				<Moment className='card-date dib ph1 fw6 ttu tracked' format='MM.DD.YY' date={start}/>
+				{!isNewsList ? <Confirmed className='icons ph1' /> : null}
+				<div className='dib pointer dim' onClick={() => handleFestClick(id)}>
+					<h6 className='cream f7 fw7 ttu tracked pl1'>{name}
+						<span className='f6 fw4 ph1'>|</span>{updateType}
+					</h6>
+				</div>
 			</div>
+			<h6 className={locationElStyle}>{location}</h6>
 		</article>
 	);
 };
