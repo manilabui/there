@@ -8,7 +8,29 @@
 	width: 150px;
 }
 
+.festlist {
+	height: 50vh;
+}
+
 .icons {
 	position: relative;
 	top: 2px;
+}
+
+.card-date {
+  color: #F2C94C;
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.card-location-list {
+  color: #F2C94C;
+  font-size: 11.5px;
+  padding-left: 101px;
+}
+
+.card-location-timeline {
+  color: #F2C94C;
+  font-size: 11.5px;
+  padding-left: 83px;
 }
