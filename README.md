@@ -22,10 +22,10 @@ Requirements:
 
 ---
 
-Any user, including those without accounts may look at the list of available fests as well as their corresponding lineups + schedules.
+###### Any user, including those without accounts, may look at the list of available fests as well as their corresponding lineups and schedules.
 ![](src/assets/there_loggedOutUser.gif)
 
-Logged-in users can see a timeline of their upcoming events, and they may also either confirm or express interest (checkmark icon vs star icon) of their attendance to a set.
+###### Logged-in users can see a timeline of their upcoming events, and they may also either confirm or express interest (checkmark icon vs star icon) of their attendance to a set.
 ![](src/assets/there_loggedInUser.gif)
 
 ---
