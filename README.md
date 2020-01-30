@@ -31,7 +31,7 @@ Requirements:
 ---
 
 #### Technology Stack
-- Mockup: Figma
+- Mockup: Figma (Check out the mockup [here](https://www.figma.com/file/9VNwMnHPQYdneR0sDGsgWy/T.H.E.R.E.?node-id=4%3A2))
 - JS: React with Hooks
 - Styles: Tachyons, CSS
 - Libraries: Lodash, Moment
