@@ -1,5 +1,5 @@
 # T.H.E.R.E.: The Hottest Electronic Rave Experience
-[LinkedIn](https://www.linkedin.com/in/manilabui/)
+Find me on: [LinkedIn](https://www.linkedin.com/in/manilabui/)
 <!-- [Portfolio](www.manilabui.com)|[LinkedIn](https://www.linkedin.com/in/manilabui/) -->
 
 ## About
