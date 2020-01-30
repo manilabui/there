@@ -30,7 +30,7 @@ export default props => {
                 autoFocus='on'
                 placeholder=''
             />
-            {festNews}
+            <div className='festlist'>{festNews}</div>
         </Fragment>
     );
 };
