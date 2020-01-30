@@ -8,9 +8,7 @@ T.H.E.R.E. is a virtual fanny pack for EDM (electronic dance music) fest schedul
 My app seeks to resolve these issues by allowing users to find these lineups in a single place while also giving them the ability to save fests to which they're going. In order to ease fest day planning, users can plan which artists they want to see at each of those fests with the app as well.
 
 ## Setup for Running Locally
-Requirements: 
-- [NPM](https://www.npmjs.com/get-npm)
-- [JSON-Server](https://www.npmjs.com/package/json-server)
+Requirements: [NPM](https://www.npmjs.com/get-npm) | [JSON-Server](https://www.npmjs.com/package/json-server)
 
 1. Clone this repository
 1. `cd` into the directory it creates
