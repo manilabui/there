@@ -11,6 +11,14 @@
 
 ---
 
+![](src/assets/there_loggedOutUser.gif)
+![](src/assets/there_loggedInUser.gif)
+<!-- <img src="https://raw.githubusercontent.com//chaser/master/src/assets/chaser_gif1.gif">
+
+<img src="https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif2.gif"> -->
+
+---
+
 #### Technology Stack
 - Mockup: Figma
 - JS: React with Hooks

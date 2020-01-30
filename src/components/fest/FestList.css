@@ -9,7 +9,12 @@
 }
 
 .festlist {
-	height: 50vh;
+	height: 57vh;
+	overflow: scroll;
+}
+
+.festlist::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 .icons {
