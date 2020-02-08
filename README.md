@@ -46,9 +46,11 @@ Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-
    # or
    npm run start
    ```
-1. If your browser doesnt open and navigate to the app automatically, navigate to [http://localhost:3000](http://localhost:3000) to view it in the browser in development mode.
+1. If your browser doesn't open and navigate to the app automatically, navigate to [http://localhost:3000](http://localhost:3000) to view it in the browser in development mode.
 
 ---
+
+## Examples of the App in action
 
 ##### Any user, including those without accounts, may look at the list of available fests as well as their corresponding lineups and schedules.
 
