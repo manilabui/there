@@ -12,7 +12,7 @@ My app seeks to resolve these issues by allowing users to find these lineups in 
 
 ## Setup for Running Locally
 
-Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-npm) | [JSON-Server](https://www.npmjs.com/package/json-server)
+Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-npm)
 
 1. Clone this repository
    ```sh
