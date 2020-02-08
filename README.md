@@ -1,4 +1,4 @@
-# T.H.E.R.E.: The Hottest Electronic Rave Experience
+# :dancer: T.H.E.R.E.: The Hottest Electronic Rave Experience :man_dancing:
 
 Find me on: [LinkedIn](https://www.linkedin.com/in/manilabui/)
 
@@ -10,7 +10,7 @@ T.H.E.R.E. is a virtual fanny pack for EDM (electronic dance music) fest schedul
 
 My app seeks to resolve these issues by allowing users to find these lineups in a single place while also giving them the ability to save fests to which they're going. In order to ease fest day planning, users can plan which artists they want to see at each of those fests with the app as well.
 
-## Setup for Running Locally
+## Installation
 
 Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-npm)
 
@@ -50,22 +50,22 @@ Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-
 
 ---
 
-###### Any user, including those without accounts, may look at the list of available fests as well as their corresponding lineups and schedules.
+##### Any user, including those without accounts, may look at the list of available fests as well as their corresponding lineups and schedules.
 
 ![](src/assets/there_loggedOutUser.gif)
 
-###### Logged-in users can see a timeline of their upcoming events, and they may also either confirm or express interest (checkmark icon vs star icon) of their attendance to a set.
+##### Logged-in users can see a timeline of their upcoming events, and they may also either confirm or express interest (checkmark icon vs star icon) of their attendance to a set.
 
 ![](src/assets/there_loggedInUser.gif)
 
 ---
 
-#### Technology Stack
+## Technologies Used
 
-- Mockup: Figma (Check out the mockup [here](https://www.figma.com/file/9VNwMnHPQYdneR0sDGsgWy/T.H.E.R.E.?node-id=4%3A2))
-- JS: React with Hooks
-- Styles: Tachyons, CSS
-- Libraries: Lodash, Moment
-- Graphics: Logo + some custom icons designed by me in Figma (Others were Material icons, also from Figma.)
-- DB: JSON Server
-- Version Control: Git, GitHub
+- _Mockups_: Figma (Check out the mockup [here](https://www.figma.com/file/9VNwMnHPQYdneR0sDGsgWy/T.H.E.R.E.?node-id=4%3A2))
+- _JavaScript_: React with Hooks
+- _Styling_: Tachyons, CSS
+- _Utility Libraries_: Lodash, Moment
+- _Graphics_: Logo + some custom icons designed by me in Figma (Others were Material icons, also from Figma.)
+- _Local Databse_: JSON Server
+- _Version Control_: Git, GitHub
