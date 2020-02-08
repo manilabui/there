@@ -1,1 +1,1 @@
-export const getUserInfo = () => JSON.parse(localStorage.getItem('credentials'));
+export const getUserInfo = () => JSON.parse(localStorage.getItem('credentials'))
