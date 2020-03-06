@@ -1,16 +1,16 @@
 * {
-   margin: 0px;
-   padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-  background-color: #A67E4E;
-  padding: .5rem;
+  background-color: #a67e4e;
+  padding: 0.5rem;
 }
 
 hr {
-  border: .5px solid #FFF2CB;
-  opacity: .5;
+  border: 0.5px solid #fff2cb;
+  opacity: 0.5;
 }
 
 .container-main {
@@ -21,7 +21,8 @@ hr {
   height: 28vh;
 }
 
-.section-festList, .section-timeline {
+.section-festList,
+.section-timeline {
   width: 34%;
   height: 65vh;
 }
@@ -47,16 +48,16 @@ hr {
 }
 
 .cream {
-  color: #FFF2CB;
+  color: #fff2cb;
 }
 
 .card-date {
-  color: #F2C94C;
+  color: #f2c94c;
   font-size: 10px;
   line-height: 18px;
 }
 
 .card-location {
-  color: #F2C94C;
+  color: #f2c94c;
   font-size: 11.5px;
 }
