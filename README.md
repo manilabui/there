@@ -69,5 +69,5 @@ Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-
 - _Styling_: Tachyons, CSS
 - _Utility Libraries_: Lodash, Moment
 - _Graphics_: Logo + some custom icons designed by me in Figma (Others were Material icons, also from Figma.)
-- _Local Databse_: JSON Server
+- _Local Database_: JSON Server
 - _Version Control_: Git, GitHub
