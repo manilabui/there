@@ -4,7 +4,7 @@ import FestCard from '../fest/FestCard'
 
 export default props => {
   const { isAuthenticated } = useAuth()
-  console.log(props.fests)
+
   const festCardArr = props.fests.map(({ event }) => {
     return <FestCard key={event.id} isNewsList={false} {...event} {...props} />
   })
