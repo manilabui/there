@@ -49,7 +49,6 @@ export default ({ scheduleId, user }) => {
           const daysArr = sortBy(toPairs(daysObj))
 
           setFestDays([])
-          setFestDays(null)
           setName(name)
           setFestUrl(eventUrl)
           setLocation(location)
