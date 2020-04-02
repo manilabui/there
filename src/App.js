@@ -71,8 +71,8 @@ export default () => {
           </div>
         </section>
       </div>
-      <footer className="absolute bottom-0 fr">
-        <p className="f7 cream mb2">Made with anguish by Manbootay | 2020</p>
+      <footer className="absolute bottom-0 o-70 fr">
+        <p className="f7 cream mb2">Made by Manchilla | 2020</p>
       </footer>
     </div>
   )
