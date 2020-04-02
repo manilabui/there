@@ -34,9 +34,9 @@ export default () => {
 
   useEffect(getAllFests, [user, scheduleId])
 
-  const updateUser = user => {
+  const updateUser = newUser => {
     setUser(null)
-    setUser(user)
+    setUser(newUser)
   }
   const handleFestClick = id => setScheduleId(id)
   const updateFestList = arr => setNewsFests(arr)
@@ -71,8 +71,8 @@ export default () => {
           </div>
         </section>
       </div>
-      <footer className="absolute bottom-0 fr">
-        <p className="f7 cream mb2">Made with anguish by Manbootay | 2020</p>
+      <footer className="absolute bottom-0 o-70 fr">
+        <p className="f7 cream mb2">Made by Manchilla | 2020</p>
       </footer>
     </div>
   )

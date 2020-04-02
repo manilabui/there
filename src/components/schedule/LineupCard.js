@@ -54,9 +54,11 @@ export default ({ set, user, isPublic, handleUserToArtistEventUpdate }) => {
 
   const removeFromUserSchedule = () => {
     deleteItem('usersToArtistEvents', set.userToArtistsEventId)
-    // format set like festSet objects
-    delete set.userToArtistsEventId
-    handleUserToArtistEventUpdate(set, 'delete')
+      .then(() => {
+        // format set like festSet objects
+        delete set.userToArtistsEventId
+        handleUserToArtistEventUpdate(set, 'delete')
+      })
   }
 
   const festSideButtons = (

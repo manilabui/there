@@ -54,8 +54,8 @@ export default ({
         <Moment className="card-date dib ph1 fw6 ttu tracked" format="MM.DD.YY" date={start} />
         {!isNewsList ? <Confirmed className="icons ph1" /> : null}
         <div className="dib pointer dim" onClick={() => handleFestClick(id)}>
-          <h6 className="cream f7 fw7 ttu tracked pl1">
-            {name}
+          <h6 className="cream f7 fw4 pl1">
+            <span className="fw7 ttu tracked">{name}</span>
             <span className="f6 fw4 ph1">|</span>
             {updateType}
           </h6>

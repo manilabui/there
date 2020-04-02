@@ -1,8 +1,6 @@
 # :dancer: T.H.E.R.E.: The Hottest Electronic Rave Experience :man_dancing:
 
-Find me on: [LinkedIn](https://www.linkedin.com/in/manilabui/)
-
-<!-- [Portfolio](www.manilabui.com)|[LinkedIn](https://www.linkedin.com/in/manilabui/) -->
+[Portfolio](www.manilabui.com)|[LinkedIn](https://www.linkedin.com/in/manilabui/)
 
 ## About
 
@@ -68,6 +66,6 @@ Requirements: [Yarn](https://yarnpkg.com/) _or_ [NPM](https://www.npmjs.com/get-
 - _JavaScript_: React with Hooks
 - _Styling_: Tachyons, CSS
 - _Utility Libraries_: Lodash, Moment
-- _Graphics_: Logo + some custom icons designed by me in Figma (Others were Material icons, also from Figma.)
+- _Graphics_: Logo + some custom icons designed by me in Figma (Others were Material icons, also from Figma)
 - _Local Database_: JSON Server
 - _Version Control_: Git, GitHub
